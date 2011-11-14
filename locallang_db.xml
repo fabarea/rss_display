@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'rss_display'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_content.tx_rssdisplay_feed">Feed URL</label>
+			<label index="tt_content.tx_rssdisplay_tags">Fields to display (in addition to the title and the link url)</label>
+			<label index="tt_content.tx_rssdisplay_quantity">Number of Feeds to Display (&gt;1)</label>
+			<label index="tt_content.tx_rssdisplay_descriptionlength">Length of the description (&gt;5)</label>
+			<label index="tt_content.list_type_pi1">RSS Feed</label>
+		</languageKey>
+	</data>
+</T3locallang>

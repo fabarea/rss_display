@@ -1,0 +1,20 @@
+<div class="tx-rssdisplay-title">
+	<h2>
+		<a href="{titleLink}" target='_blank'>{title}</a>
+	</h2>
+
+	<ul class="tx-rssdisplay-list">
+		<f:for each="{items}" as="item">
+			<li class="tx-rssdisplay-item">
+				<span class="tx-rssdisplay-item-title">
+					<f:link.external uri="{item.link}" target="_blank">{item.title}</f:link.external>
+				</span>
+				<f:if condition="{item.description}">
+					<p  class="tx-rssdisplay-item-description">
+						<f:format.crop maxCharacters="{max}" append="&nbsp;[...]">{item.description}</f:format.crop>
+					</p>
+				</f:if>
+			</li>
+		</f:for>
+	</ul>
+</div>
