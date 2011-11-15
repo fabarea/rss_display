@@ -61,6 +61,7 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 		$crop = $this->cObj->data["tx_rssdisplay_descriptionlength"];
 		$separator = $this->cObj->data["tx_rssdisplay_separator"];
 		$url = $this->cObj->data["tx_rssdisplay_feed"];
+		$descriptionDisplay = $this->cObj->data["tx_rssdisplay_descriptiondisplay"];
 
 		if (strlen($url) <= 3) {
 			// if no url is found throw an error
@@ -79,13 +80,8 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 			$content = implode("", file($url));
 			$content = $this->sanitizeContent($content);
 
-			// print $content;
 			// you will probably want "content:encoded" as one of the tags defined
-			$tags = $this->cObj->data["tx_rssdisplay_tags"];
-			$tags = explode(",", $tags);
-			$tags[] = 'link';
-			$tags[] = 'title';
-			// find the title and titlelink of the rss feed page
+			$tags = explode(",", $conf['tags']);
 
 			//array with the title and the titleLink
 			$titleInfo = $this->getTitleInfo($content);
@@ -104,6 +100,7 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 				//$items[] = $this->getTagValues($tags, $rawItems[1][$i], $crop);
 			}
 
+			$view->assign('descriptionDisplay', $descriptionDisplay);
 			$view->assign('items', $items);
 
 			$result = $view->render();

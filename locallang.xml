@@ -6,8 +6,8 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="pi1_title">RSS Feed</label>
-			<label index="pi1_plus_wiz_description">RSS Feed</label>
+			<label index="pi1_title">RSS Feed Display</label>
+			<label index="pi1_plus_wiz_description">RSS Feed Display</label>
 		</languageKey>
 	</data>
 </T3locallang>
