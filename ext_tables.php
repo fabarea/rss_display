@@ -2,7 +2,7 @@
 if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 $tempColumns = Array (
 	"tx_rssdisplay_feed" => Array (
-		"exclude" => 1,
+		"exclude" => 0,
 		"label" => "LLL:EXT:rss_display/locallang_db.xml:tt_content.tx_rssdisplay_feed",
 		"config" => Array (
 			"type" => "input",
@@ -23,7 +23,7 @@ $tempColumns = Array (
 		)
 	),
 	"tx_rssdisplay_quantity" => Array (
-		"exclude" => 1,
+		"exclude" => 0,
 		"label" => "LLL:EXT:rss_display/locallang_db.xml:tt_content.tx_rssdisplay_quantity",
 		"config" => Array (
 			"type" => "input",
@@ -32,14 +32,14 @@ $tempColumns = Array (
 		)
 	),
 	"tx_rssdisplay_descriptiondisplay" => Array (
-		"exclude" => 1,
+		"exclude" => 0,
 		"label" => "LLL:EXT:rss_display/locallang_db.xml:tt_content.tx_rssdisplay_descriptiondisplay",
 		"config" => Array (
 			"type" => "check",
 		)
 	),
 	"tx_rssdisplay_descriptionlength" => Array(
-		"exclude" => 1,
+		"exclude" => 0,
 		"label" => "LLL:EXT:rss_display/locallang_db.xml:tt_content.tx_rssdisplay_descriptionlength",
 		"config" => Array (
 			"type" => "input",

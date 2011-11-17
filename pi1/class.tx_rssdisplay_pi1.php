@@ -86,7 +86,8 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 			//array with the title and the titleLink
 			$titleInfo = $this->getTitleInfo($content);
 
-			$templateFile = t3lib_div::getFileAbsFileName('EXT:rss_display/Resources/Private/Templates/Feed.html');
+			$templateFile = t3lib_div::getFileAbsFileName($conf['templateFile']);
+			t3lib_utility_Debug::debug($templateFile, '$templateFile');
 			$view = t3lib_div::makeInstance('Tx_Fluid_View_StandaloneView');
 			$view->setTemplatePathAndFilename($templateFile);
 			$view->assign('title', $titleInfo['title']);

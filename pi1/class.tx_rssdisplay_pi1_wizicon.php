@@ -43,7 +43,7 @@ class tx_rssdisplay_pi1_wizicon {
 		$LL = $this->includeLocalLang();
 
 		$wizardItems['plugins_tx_rssdisplay_pi1'] = array(
-			'icon'=>t3lib_extMgm::extRelPath('rss_display').'pi1/ce_wiz.gif',
+			'icon'=>t3lib_extMgm::extRelPath('rss_display').'ext_icon.gif',
 			'title'=>$LANG->getLLL('pi1_title',$LL),
 			'description'=>$LANG->getLLL('pi1_plus_wiz_description',$LL),
 			'params'=>'&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=rss_display_pi1'
@@ -60,7 +60,7 @@ class tx_rssdisplay_pi1_wizicon {
 	function includeLocalLang()	{
 		global $LANG;
 
-		$LOCAL_LANG = $LANG->includeLLFile('EXT:".$extKey."/locallang.xml',FALSE);
+		$LOCAL_LANG = $LANG->includeLLFile('EXT:rss_display/locallang.xml',FALSE);
 		return $LOCAL_LANG;
 	}
 }

@@ -1,3 +1,4 @@
 plugin.tx_rssdisplay_pi1 {
 	tags = title,link,description,pubDate
+	templateFile = EXT:rss_display/Resources/Private/Templates/Feed.html
 }
