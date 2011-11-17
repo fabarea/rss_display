@@ -12,5 +12,12 @@
 			<label index="tt_content.tx_rssdisplay_descriptionlength">Length of the description (characters)</label>
 			<label index="tt_content.list_type_pi1">RSS Feed Display</label>
 		</languageKey>
+		<languageKey index="fr" type="array">
+			<label index="tt_content.tx_rssdisplay_feed">URL du flux</label>
+			<label index="tt_content.tx_rssdisplay_descriptiondisplay">Afficher la description</label>
+			<label index="tt_content.tx_rssdisplay_quantity">Nombre d'items à afficher (&gt;1)</label>
+			<label index="tt_content.tx_rssdisplay_descriptionlength">Longueur de la description (en caractères)</label>
+			<label index="tt_content.list_type_pi1">RSS Feed Display</label>
+		</languageKey>
 	</data>
 </T3locallang>
