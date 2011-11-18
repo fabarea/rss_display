@@ -169,7 +169,7 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 		foreach ($tags as $tag) {
 			if ($tag == 'description') {
 				$value = strtr($this->getTagValue($tag, $items), array('<![CDATA[' => '', ']]>' => ''));
-				$values[$tag] = strip_tags($value); // remove potential html tag
+				$values[$tag] = strip_tags(html_entity_decode($value)); // remove potential html tag
 			} else {
 				$values[$tag] = strtr($this->getTagValue($tag, $items), array('<![CDATA[' => '', ']]>' => ''));
 			}
