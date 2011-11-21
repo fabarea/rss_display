@@ -35,9 +35,6 @@ if (t3lib_div::int_from_ver(TYPO3_version) < '4006000') {
     if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache']['options']['cacheTable'])) {
         $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache']['options']['cacheTable'] = 'tx_rssdisplay_cache';
     }
-    if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache']['options']['tagsTable'])) {
-        $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache']['options']['tagsTable'] = 'tx_rssdisplay_cache_tags';
-    }
 }
 
 
