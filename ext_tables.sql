@@ -26,7 +26,7 @@ CREATE TABLE tx_rssdisplay_cache (
 # TABLE structure FOR TABLE 'tx_rssdisplay_cache_tags'
 #
 CREATE TABLE tx_rssdisplay_cache_tags (
-    id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    id int(11) unsigned NOT NULL auto_increment,
     identifier varchar(250) DEFAULT '' NOT NULL,
     tag varchar(250) DEFAULT '' NOT NULL,
     PRIMARY KEY (id),
