@@ -20,3 +20,16 @@ CREATE TABLE tx_rssdisplay_cache (
     PRIMARY KEY (id),
     KEY cache_id (identifier)
 ) ENGINE=InnoDB;
+
+
+#
+# TABLE structure FOR TABLE 'tx_rssdisplay_cache_tags'
+#
+CREATE TABLE tx_rssdisplay_cache_tags (
+    id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    identifier varchar(250) DEFAULT '' NOT NULL,
+    tag varchar(250) DEFAULT '' NOT NULL,
+    PRIMARY KEY (id),
+    KEY cache_id (identifier),
+    KEY cache_tag (tag)
+) ENGINE=InnoDB;

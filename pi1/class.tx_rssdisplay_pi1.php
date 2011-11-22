@@ -70,9 +70,8 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 			#throw new Exception('Exception 1320651278: no URL feed defined in plugin "' . $this->extKey . '". Change this in the plugin configuration.', 1320651278);
 		}
 
-
 		// Try to get from the cache the content
-		$cacheIdentifier = md5($cacheIdentifier);
+		$cacheIdentifier = md5($url);
 		$result = $this->cacheInstance->get($cacheIdentifier);
 
 		// Makes sure "no_cache" flag is not detected

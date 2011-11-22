@@ -28,13 +28,16 @@ if (t3lib_div::int_from_ver(TYPO3_version) < '4006000') {
         $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache']['backend'] = 't3lib_cache_backend_DbBackend';
     }
 
-    // Define data and tags table for 4.5 and below (obsolete in 4.6)
+    // Define data table for 4.5 and below (obsolete in 4.6)
     if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache']['options'])) {
         $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache']['options'] = array();
     }
     if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache']['options']['cacheTable'])) {
         $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache']['options']['cacheTable'] = 'tx_rssdisplay_cache';
     }
+	if (!isset($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache']['options']['tagsTable'])) {
+		$TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache']['options']['tagsTable'] = 'tx_rssdisplay_cache_tags';
+	}
 }
 
 

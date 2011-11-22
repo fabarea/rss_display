@@ -1,3 +1,8 @@
+22-11-11 Virginie Udriot  <virginie.udriot@ecodev.ch>
+	* fix wrong cache configuration
+	* fix problem when plugin is installed more than once on the same page
+	* update the documentation
+	
 14-11-11 Virginie Udriot  <virginie.udriot@ecodev.ch>
 	* first release 
 
