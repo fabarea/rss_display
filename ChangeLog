@@ -1,3 +1,6 @@
+02-12-11 Virginie Udriot  <virginie.udriot@ecodev.ch>
+	* add cache duration configuration
+
 22-11-11 Virginie Udriot  <virginie.udriot@ecodev.ch>
 	* add missing cache tag table
 	* fix problem when plugin is installed more than once on the same page

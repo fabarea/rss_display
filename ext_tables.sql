@@ -6,6 +6,7 @@ CREATE TABLE tt_content (
 	tx_rssdisplay_descriptiondisplay int(11) DEFAULT '0' NOT NULL,
 	tx_rssdisplay_quantity int(11) DEFAULT '0' NOT NULL,
 	tx_rssdisplay_descriptionlength int(11) DEFAULT '0' NOT NULL
+	#tx_rssdisplay_cache_lifetime int(11) DEFAULT '3600' NOT NULL
 );
 
 #

@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "rss_display".
 #
-# Auto generated 22-11-2011 13:31
+# Auto generated 02-12-2011 16:10
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'Take a RSS Feed and renders it onto the Frontend',
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '1.0.1',
+	'version' => '1.0.2',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
@@ -40,7 +40,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'suggests' => array(
 		),
 	),
-	'_md5_values_when_last_written' => 'a:14:{s:9:"ChangeLog";s:4:"b999";s:12:"ext_icon.gif";s:4:"0bfd";s:17:"ext_localconf.php";s:4:"0bc0";s:14:"ext_tables.php";s:4:"29ed";s:14:"ext_tables.sql";s:4:"6c1f";s:24:"ext_typoscript_setup.txt";s:4:"2011";s:13:"locallang.xml";s:4:"1143";s:16:"locallang_db.xml";s:4:"041e";s:37:"Resources/Private/Templates/Feed.html";s:4:"b036";s:14:"doc/manual.pdf";s:4:"c6ef";s:14:"doc/manual.sxw";s:4:"9413";s:31:"pi1/class.tx_rssdisplay_pi1.php";s:4:"066b";s:39:"pi1/class.tx_rssdisplay_pi1_wizicon.php";s:4:"cc69";s:24:"pi1/static/editorcfg.txt";s:4:"89b0";}',
+	'_md5_values_when_last_written' => 'a:14:{s:9:"ChangeLog";s:4:"e2cc";s:12:"ext_icon.gif";s:4:"0bfd";s:17:"ext_localconf.php";s:4:"0bc0";s:14:"ext_tables.php";s:4:"29ed";s:14:"ext_tables.sql";s:4:"8d3b";s:24:"ext_typoscript_setup.txt";s:4:"0fac";s:13:"locallang.xml";s:4:"1143";s:16:"locallang_db.xml";s:4:"041e";s:37:"Resources/Private/Templates/Feed.html";s:4:"b036";s:14:"doc/manual.pdf";s:4:"ad3e";s:14:"doc/manual.sxw";s:4:"f0cf";s:31:"pi1/class.tx_rssdisplay_pi1.php";s:4:"d974";s:39:"pi1/class.tx_rssdisplay_pi1_wizicon.php";s:4:"cc69";s:24:"pi1/static/editorcfg.txt";s:4:"89b0";}',
 	'suggests' => array(
 	),
 );

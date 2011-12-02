@@ -74,8 +74,14 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 		$cacheIdentifier = md5($url);
 		$result = $this->cacheInstance->get($cacheIdentifier);
 
+
 		// Makes sure "no_cache" flag is not detected
 		if (!$result || $GLOBALS['TSFE']->no_cache) {
+			$lifetime = $conf['cacheDuration'];
+
+			//t3lib_div.debug($lifetime);
+			//exit();
+
 			$content = implode("", file($url));
 			$content = $this->sanitizeContent($content);
 
@@ -105,7 +111,7 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 			$result = $view->render();
 
 				// set in cache for next use
-			$this->cacheInstance->set($cacheIdentifier, $result);
+			$this->cacheInstance->set($cacheIdentifier, $result, array(1), $lifetime);
 		}
 
 		// Use to flush in Development Context
