@@ -1,3 +1,6 @@
+05-12-11 Virginie Udriot  <virginie.udriot@ecodev.ch>
+	* set TYPO3 dependency
+
 02-12-11 Virginie Udriot  <virginie.udriot@ecodev.ch>
 	* add cache duration configuration
 
@@ -5,7 +8,7 @@
 	* add missing cache tag table
 	* fix problem when plugin is installed more than once on the same page
 	* update the documentation
-	
+
 14-11-11 Virginie Udriot  <virginie.udriot@ecodev.ch>
-	* first release 
+	* first release
 
