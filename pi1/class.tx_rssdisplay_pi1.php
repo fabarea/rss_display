@@ -100,7 +100,7 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 
 			preg_match_all("|<item>(.*)</item>|Uism", $content, $rawItems, PREG_PATTERN_ORDER);
 
-			for ($i = 0; $i < $quantity; $i++) {
+			for ($i = 0; $i < $quantity && !empty($rawItems[1][$i]); $i++) {
 				$items[] = $this->getTagValues($tags, $rawItems[1][$i]);
 				//$items[] = $this->getTagValues($tags, $rawItems[1][$i], $crop);
 			}
