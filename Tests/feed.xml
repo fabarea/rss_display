@@ -1,0 +1,139 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="http://news.typo3.org/fileadmin/news.typo3.org/rss.xsl" media="screen"?>
+<rss version="2.0">
+	<channel>
+
+		<title>TYPO3 news: All news</title>
+		<link>http://news.typo3.org/</link>
+		<description>news.typo3.org: The TYPO3 news resource</description>
+		<language>en</language>
+		<image>
+			<title>TYPO3 news: All news</title>
+			<url>http://news.typo3.org/fileadmin/news.typo3.org/xmlicon.gif</url>
+			<link>http://news.typo3.org/</link>
+			<width>88</width>
+			<height>31</height>
+			<description>news.typo3.org: The TYPO3 news resource</description>
+		</image>
+		<generator>TYPO3 - get.content.right</generator>
+		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+
+
+
+		<lastBuildDate>Tue, 06 Dec 2011 08:38:00 +0100</lastBuildDate>
+
+
+		<item>
+			<title>New TYPO3 Security Guide</title>
+			<link>http://news.typo3.org/news/article/new-typo3-security-guide/</link>
+			<description>The TYPO3 community is very pleased to release a brand new Security Guide, targeted at administrators, integrators and editors. This Guide not only covers technical aspects of protecting a TYPO3...</description>
+			<category>Community</category>
+			<category>DocTeam</category>
+			<category>www.typo3.org</category>
+
+
+			<pubDate>Tue, 06 Dec 2011 08:38:00 +0100</pubDate>
+		</item>
+
+		<item>
+			<title>Successful Code Sprint for TYPO3 4.7 in Frankfurt</title>
+			<link>http://news.typo3.org/news/article/successful-code-sprint-for-typo3-47-in-frankfurt/</link>
+			<description>From thursday, November 17th until November 20th 2011, a handful of TYPO3 coders met in Frankfurt, Germany to concentrately work on some new features of the next version of our beloved content...</description>
+			<category>Development</category>
+			<category>Core Group</category>
+
+			<author>benni@typo3.org</author>
+			<pubDate>Thu, 01 Dec 2011 10:42:00 +0100</pubDate>
+		</item>
+
+		<item>
+			<title>TYPO3 4.7alpha1 released</title>
+			<link>http://news.typo3.org/news/article/typo3-47alpha1-released/</link>
+			<description>Today, the TYPO3 community released the first Alpha version of TYPO3 4.7. This marks the start of our journey to the next major release of our CMS: TYPO3 4.7 standards and accessibility.</description>
+			<category>Development</category>
+			<category>Core Group</category>
+
+			<author>steffen.ritter@typo3.org</author>
+			<pubDate>Tue, 29 Nov 2011 18:30:00 +0100</pubDate>
+		</item>
+
+		<item>
+			<title>Kickoff of TYPO3 4.7 development: Focus on standards and accessibility</title>
+			<link>http://news.typo3.org/news/article/kickoff-of-typo3-47-development-focus-on-standards-and-accessibility/</link>
+			<description>TYPO3 4.7 is entitled to bring standards and accessibility to the user. The focus of TYPO3 4.7 will be on excellent default values, accessible frontend output and full compliance with web standards. </description>
+			<category>Development</category>
+			<category>Core Group</category>
+			<category>www.typo3.org</category>
+
+			<author>steffen.ritter@typo3.org</author>
+			<pubDate>Tue, 29 Nov 2011 17:00:00 +0100</pubDate>
+		</item>
+
+		<item>
+			<title>FLOW3 1.0.1 has been released</title>
+			<link>http://news.typo3.org/news/article/flow3-101-has-been-released/</link>
+			<description>Today FLOW3 1.0.1, the first patch release of the PHP application framework has been released.</description>
+			<category>Development</category>
+			<category>FLOW3</category>
+			<category>www.typo3.org</category>
+
+			<author>karsten@typo3.org</author>
+			<pubDate>Tue, 22 Nov 2011 17:05:00 +0100</pubDate>
+		</item>
+
+		<item>
+			<title>TYPO3 4.4.12, 4.5.8 and 4.6.1 released</title>
+			<link>http://news.typo3.org/news/article/typo3-4412-458-and-461-released/</link>
+			<description>The TYPO3 Core Team announces versions 4.4.12, 4.5.8 and 4.6.1 of the TYPO3 Enterprise Content Management System.</description>
+			<category>Development</category>
+			<category>Core Group</category>
+			<category>www.typo3.org</category>
+
+			<author>typo3v4@typo3.org</author>
+			<pubDate>Tue, 22 Nov 2011 16:30:00 +0100</pubDate>
+		</item>
+
+		<item>
+			<title>TYPO3 Community October 2011</title>
+			<link>http://news.typo3.org/news/article/typo3-community-october-2011/</link>
+			<description>The month of October could almost be called launch month with the launch of FLOW3 and the release of TYPO3 version 4.6. The international TYPO3 conference in Frankfurt, Germany was extra-ordinary...</description>
+			<category>Community</category>
+
+			<author>ben.vantende@typo3.org</author>
+			<pubDate>Tue, 22 Nov 2011 16:17:00 +0100</pubDate>
+		</item>
+
+		<item>
+			<title>Security issues in third party extensions &quot;phpMyAdmin&quot; (phpmyadmin) and &quot;LDAP&quot; (eu_ldap)</title>
+			<link>http://news.typo3.org/news/article/security-issues-in-third-party-extensions-phpmyadmin-phpmyadmin-and-ldap-eu-ldap/</link>
+			<description>Vulnerabilities have been discovered in the third party TYPO3 extensions &quot;phpMyAdmin&quot; (phpmyadmin) and &quot;LDAP&quot; (eu_ldap)</description>
+			<category>Security</category>
+			<category>www.typo3.org</category>
+
+			<author>security@typo3.org</author>
+			<pubDate>Tue, 15 Nov 2011 11:20:00 +0100</pubDate>
+		</item>
+
+		<item>
+			<title>TYPO3 Community 3rd Quarter 2011</title>
+			<link>http://news.typo3.org/news/article/typo3-community-3rd-quarter-2011/</link>
+			<description>The third quarter started, in July, with the Developer Days in Sursee, Switzerland. The most significant occurrence for this quarter was the release of the new translation server, which will enable a...</description>
+			<category>Community</category>
+
+
+			<pubDate>Tue, 08 Nov 2011 09:54:00 +0100</pubDate>
+		</item>
+
+		<item>
+			<title>First FLOW3 User Group</title>
+			<link>http://news.typo3.org/news/article/first-flow3-user-group/</link>
+			<description>The first stable version of the PHP framework, FLOW3 has been released last month. FLOW3 will be the foundation for our next-gen CMS, code named Phoenix, and will provide a reliable foundation for...</description>
+			<category>Community</category>
+
+			<author>patrick.lobacher@typo3.org</author>
+			<pubDate>Wed, 02 Nov 2011 09:06:00 +0100</pubDate>
+		</item>
+
+	</channel>
+</rss>

@@ -7,7 +7,14 @@
 		<f:for each="{items}" as="item">
 			<li class="tx-rssdisplay-item">
 				<span class="tx-rssdisplay-item-title">
-					<f:link.external uri="{item.link}" target="_blank">{item.title}</f:link.external>
+					<f:if condition="{item.link}">
+						<f:then>
+							<f:link.external uri="{item.link}" target="_blank">{item.title}</f:link.external>
+						</f:then>
+						<f:else>
+							<span>{item.title}</span>
+						</f:else>
+					</f:if>
 				</span>
 				<f:if condition="{descriptionDisplay}">
 					<p  class="tx-rssdisplay-item-description">

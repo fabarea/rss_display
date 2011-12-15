@@ -1,3 +1,6 @@
+15-12-11 Virginie Udriot  <virginie.udriot@ecodev.ch>
+	* add special case when missing link in the feed
+
 09-12-11 Virginie Udriot  <virginie.udriot@ecodev.ch>
 	* fix bug when number of feed items to display is bigger than number of feed items available
 

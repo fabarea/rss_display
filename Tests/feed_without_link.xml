@@ -1,0 +1,50 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="http://news.typo3.org/fileadmin/news.typo3.org/rss.xsl" media="screen"?>
+<rss version="2.0">
+	<channel>
+
+		<title>TYPO3 news: All news</title>
+		<link>http://news.typo3.org/</link>
+		<description>news.typo3.org: The TYPO3 news resource</description>
+		<language>en</language>
+		<image>
+			<title>TYPO3 news: All news</title>
+			<url>http://news.typo3.org/fileadmin/news.typo3.org/xmlicon.gif</url>
+			<link>http://news.typo3.org/</link>
+			<width>88</width>
+			<height>31</height>
+			<description>news.typo3.org: The TYPO3 news resource</description>
+		</image>
+		<generator>TYPO3 - get.content.right</generator>
+		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+
+
+
+		<lastBuildDate>Tue, 06 Dec 2011 08:38:00 +0100</lastBuildDate>
+
+
+		<item>
+			<title>New TYPO3 Security Guide</title>
+			<description>The TYPO3 community is very pleased to release a brand new Security Guide, targeted at administrators, integrators and editors. This Guide not only covers technical aspects of protecting a TYPO3...</description>
+			<category>Community</category>
+			<category>DocTeam</category>
+			<category>www.typo3.org</category>
+
+
+			<pubDate>Tue, 06 Dec 2011 08:38:00 +0100</pubDate>
+		</item>
+
+		<item>
+			<title>Successful Code Sprint for TYPO3 4.7 in Frankfurt</title>
+			<description>From thursday, November 17th until November 20th 2011, a handful of TYPO3 coders met in Frankfurt, Germany to concentrately work on some new features of the next version of our beloved content...</description>
+			<category>Development</category>
+			<category>Core Group</category>
+
+			<author>benni@typo3.org</author>
+			<pubDate>Thu, 01 Dec 2011 10:42:00 +0100</pubDate>
+		</item>
+
+
+	</channel>
+</rss>
