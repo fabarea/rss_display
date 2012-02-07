@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "rss_display".
 #
-# Auto generated 15-12-2011 11:55
+# Auto generated 07-02-2012 14:41
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -15,8 +15,8 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'Take a RSS Feed and renders it onto the Frontend',
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '1.0.5',
-	'dependencies' => '',
+	'version' => '1.0.6',
+	'dependencies' => 'fluid',
 	'conflicts' => '',
 	'priority' => '',
 	'loadOrder' => '',
@@ -42,7 +42,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'suggests' => array(
 		),
 	),
-	'_md5_values_when_last_written' => 'a:16:{s:9:"ChangeLog";s:4:"a018";s:12:"ext_icon.gif";s:4:"0bfd";s:17:"ext_localconf.php";s:4:"0bc0";s:14:"ext_tables.php";s:4:"29ed";s:14:"ext_tables.sql";s:4:"8d3b";s:24:"ext_typoscript_setup.txt";s:4:"0fac";s:13:"locallang.xml";s:4:"1143";s:16:"locallang_db.xml";s:4:"041e";s:37:"Resources/Private/Templates/Feed.html";s:4:"2d98";s:14:"Tests/feed.xml";s:4:"fb4a";s:27:"Tests/feed_without_link.xml";s:4:"b64b";s:14:"doc/manual.pdf";s:4:"ad3e";s:14:"doc/manual.sxw";s:4:"f0cf";s:31:"pi1/class.tx_rssdisplay_pi1.php";s:4:"d707";s:39:"pi1/class.tx_rssdisplay_pi1_wizicon.php";s:4:"cc69";s:24:"pi1/static/editorcfg.txt";s:4:"89b0";}',
+	'_md5_values_when_last_written' => 'a:16:{s:9:"ChangeLog";s:4:"7b05";s:12:"ext_icon.gif";s:4:"0bfd";s:17:"ext_localconf.php";s:4:"0bc0";s:14:"ext_tables.php";s:4:"29ed";s:14:"ext_tables.sql";s:4:"8d3b";s:24:"ext_typoscript_setup.txt";s:4:"0fac";s:13:"locallang.xml";s:4:"1143";s:16:"locallang_db.xml";s:4:"041e";s:37:"Resources/Private/Templates/Feed.html";s:4:"2d98";s:14:"Tests/feed.xml";s:4:"fb4a";s:27:"Tests/feed_without_link.xml";s:4:"b64b";s:14:"doc/manual.pdf";s:4:"ad3e";s:14:"doc/manual.sxw";s:4:"f0cf";s:31:"pi1/class.tx_rssdisplay_pi1.php";s:4:"324e";s:39:"pi1/class.tx_rssdisplay_pi1_wizicon.php";s:4:"cc69";s:24:"pi1/static/editorcfg.txt";s:4:"89b0";}',
 	'suggests' => array(
 	),
 );
