@@ -54,4 +54,18 @@ if (t3lib_div::int_from_ver(TYPO3_version) < '4006000') {
 	}
 }
 
+# Install PSR-0-compatible class autoloader for SimplePie Library in Resources/PHP/SimplePie
+spl_autoload_register(function ($class) {
+
+	// Only load the class if it starts with "SimplePie"
+	if (strpos($class, 'SimplePie') !== 0) {
+		return;
+	}
+
+	require sprintf('%sResources/Private/PHP/SimplePie/%s',
+		t3lib_extMgm::extPath('rss_display'),
+		DIRECTORY_SEPARATOR . str_replace('_', DIRECTORY_SEPARATOR, $class) . '.php'
+	);
+});
+
 ?>
