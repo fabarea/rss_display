@@ -1,0 +1,2 @@
+# cat=basic//; type=options[USER_INT,USER]; label= Caching behaviour: Decide whether to handle the cache by the plugin or by the global cache preferences. If set to USER_INT the default cache duration is 3600 seconds and is configurable by TS. If set to USER the cache is as long as the cache page is configured.
+plugin_type = USER_INT
