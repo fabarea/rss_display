@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2011 Ecodev Sàrl
+*  (c) 2014 Fabien Udriot <fabien.udriot@ecodev.ch>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -21,14 +21,10 @@
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
+
 /**
  * Class that adds the wizard icon.
- *
- * @author	Virginie Udriot <virginie.udriot@ecodev.ch>
  */
-
-
-
 class tx_rssdisplay_pi1_wizicon {
 
 	/**

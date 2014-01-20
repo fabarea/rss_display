@@ -1,0 +1,20 @@
+plugin.tx_rssdisplay {
+	view {
+		# cat=module.tx_rssdisplay/file; type=string; label=Path to template root (BE)
+		templateRootPath = EXT:rss_display/Resources/Private/Templates/
+		# cat=module.tx_rssdisplay/file; type=string; label=Path to template partials (BE)
+		partialRootPath = EXT:rss_display/Resources/Private/Partials/
+		# cat=module.tx_rssdisplay/file; type=string; label=Path to template layouts (BE)
+		layoutRootPath = EXT:rss_display/Resources/Private/Layouts/
+	}
+
+	persistence {
+		# cat=module.tx_rssdisplay//a; type=string; label=Default storage PID
+		storagePid =
+	}
+
+	settings {
+		# cat=plugin.tx_rssdisplay/a; type=string; label=Name of the sender
+		# key = John Doe
+	}
+}

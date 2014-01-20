@@ -1,13 +1,27 @@
 <?php
 if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 
-  ## Extending TypoScript from static template uid=43 to set up userdefined tag:
-t3lib_extMgm::addTypoScript($_EXTKEY,'editorcfg','
-	tt_content.CSS_editor.ch.tx_rssdisplay_pi1 = < plugin.tx_rssdisplay_pi1.CSS_editor
-',43);
+#t3lib_extMgm::addPItoST43($_EXTKEY,'pi1/class.tx_rssdisplay_pi1.php','_pi1','list_type',0);
 
+// @todo enable me once TYPO3 CMS 6.2
+///** @var \TYPO3\CMS\Extensionmanager\Utility\ConfigurationUtility $configurationUtility */
+//$configurationUtility = $objectManager->get('TYPO3\CMS\Extensionmanager\Utility\ConfigurationUtility');
+//$configuration = $configurationUtility->getCurrentConfiguration($_EXTKEY);
+// echo $configuration['extension_type']['value']
+// @todo ... and remove me!
+$pluginType = 'USER_INT';
+$configuration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['rss_display']);
+if (!empty($configuration['extension_type'])) {
+	$pluginType = $configuration['extension_type'];
+}
 
-t3lib_extMgm::addPItoST43($_EXTKEY,'pi1/class.tx_rssdisplay_pi1.php','_pi1','list_type',0);
+// Configure Extbase plugin
+Tx_Extbase_Utility_Extension::configurePlugin(
+	$_EXTKEY,
+	'Pi1',
+	array('Feed' => 'show'),
+	$pluginType === 'USER_INT' ? array('Feed' => 'show') : array()
+);
 
 // Register cache 'rssdisplay_cache'
 if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache'])) {
@@ -39,6 +53,5 @@ if (t3lib_div::int_from_ver(TYPO3_version) < '4006000') {
 		$TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay_cache']['options']['tagsTable'] = 'tx_rssdisplay_cache_tags';
 	}
 }
-
 
 ?>

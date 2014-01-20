@@ -3,7 +3,7 @@
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Ecodev Sàrl
+ *  (c) 2014 Fabien Udriot <fabien.udriot@ecodev.ch>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -25,9 +25,6 @@
 
 /**
  * Plugin 'RSS Feed' for the 'rss_display' extension.
- *
- * @author	Virginie Udriot <virginie.udriot@ecodev.ch>
- *
  */
 class tx_rssdisplay_pi1 extends tslib_pibase {
 
@@ -49,6 +46,7 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 	 * @return	The content that is displayed on the website
 	 */
 	public function main($content, $conf) {
+
 		// Initialize plugin
 		$this->conf = $conf;
 		$this->pi_setPiVarDefaults();
@@ -56,11 +54,11 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 		$this->initializeCache();
 
 		// Get values from the User Interface
-		$quantity = $this->cObj->data["tx_rssdisplay_quantity"];
-		$crop = $this->cObj->data["tx_rssdisplay_descriptionlength"];
-		$separator = $this->cObj->data["tx_rssdisplay_separator"];
-		$url = $this->cObj->data["tx_rssdisplay_feed"];
-		$descriptionDisplay = $this->cObj->data["tx_rssdisplay_descriptiondisplay"];
+		$quantity = $this->cObj->data['tx_rssdisplay_quantity'];
+		$crop = $this->cObj->data['tx_rssdisplay_descriptionlength'];
+		$separator = $this->cObj->data['tx_rssdisplay_separator'];
+		$url = $this->cObj->data['tx_rssdisplay_feed'];
+		$descriptionDisplay = $this->cObj->data['tx_rssdisplay_descriptiondisplay'];
 
 		if (strlen($url) <= 3) {
 			// if no url is found throw an error
@@ -73,15 +71,12 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 		$cacheIdentifier = md5($url);
 		$result = $this->cacheInstance->get($cacheIdentifier);
 
-
 		// Makes sure "no_cache" flag is not detected
 		if (!$result || $GLOBALS['TSFE']->no_cache) {
 			$lifetime = $conf['cacheDuration'];
 
-			//t3lib_div.debug($lifetime);
-			//exit();
-
 			$content = implode("", file($url));
+
 			$content = $this->sanitizeContent($content);
 
 			// you will probably want "content:encoded" as one of the tags defined
@@ -99,6 +94,7 @@ class tx_rssdisplay_pi1 extends tslib_pibase {
 
 			preg_match_all("|<item>(.*)</item>|Uism", $content, $rawItems, PREG_PATTERN_ORDER);
 
+			$items = array();
 			for ($i = 0; $i < $quantity && !empty($rawItems[1][$i]); $i++) {
 				$items[] = $this->getTagValues($tags, $rawItems[1][$i]);
 				//$items[] = $this->getTagValues($tags, $rawItems[1][$i], $crop);

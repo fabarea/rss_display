@@ -1,0 +1,32 @@
+plugin.tx_rssdisplay_pi1 {
+	tags = title,link,description,pubDate
+	templateFile = EXT:rss_display/Resources/Private/Templates/Feed.html
+	cacheDuration = 3600
+}
+
+# Plugin configuration
+plugin.tx_rssdisplay {
+	settings {
+		templates {
+
+			# rss_display_1 is just a key which must be unique
+			rss_display_1 {
+				label = Standard
+				path = EXT:rss_display/Resources/Private/Templates/Feed/Show.html
+			}
+			rss_display_2 {
+				label = With short description
+				path = EXT:rss_display/Resources/Private/Templates/Feed/ShowWithCroppedDescription.html
+			}
+			rss_display_3 {
+				label = With no description
+				path = EXT:rss_display/Resources/Private/Templates/Feed/ShowWithoutDescription.html
+			}
+		}
+	}
+	view {
+		templateRootPath = {$plugin.tx_rssdisplay.view.templateRootPath}
+		partialRootPath = {$plugin.tx_rssdisplay.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_rssdisplay.view.layoutRootPath}
+	}
+}

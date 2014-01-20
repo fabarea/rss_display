@@ -1,5 +1,1 @@
-plugin.tx_rssdisplay_pi1 {
-	tags = title,link,description,pubDate
-	templateFile = EXT:rss_display/Resources/Private/Templates/Feed.html
-	cacheDuration = 3600
-}
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:rss_display/Configuration/TypoScript/setup.txt">
