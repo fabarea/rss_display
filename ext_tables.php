@@ -14,6 +14,4 @@ Tx_Extbase_Utility_Extension::registerPlugin(
 	'Fetch and display a RSS feed'
 );
 
-t3lib_extMgm::addPlugin(Array('LLL:EXT:rss_display/locallang_db.xml:tt_content.list_type_pi1', $_EXTKEY.'_pi1'),'list_type');
-#if (TYPO3_MODE=='BE')	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_rssdisplay_pi1_wizicon'] = t3lib_extMgm::extPath($_EXTKEY).'pi1/class.tx_rssdisplay_pi1_wizicon.php';
 ?>

@@ -1,8 +1,6 @@
 <?php
 if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 
-#t3lib_extMgm::addPItoST43($_EXTKEY,'pi1/class.tx_rssdisplay_pi1.php','_pi1','list_type',0);
-
 // @todo enable me once TYPO3 CMS 6.2
 ///** @var \TYPO3\CMS\Extensionmanager\Utility\ConfigurationUtility $configurationUtility */
 //$configurationUtility = $objectManager->get('TYPO3\CMS\Extensionmanager\Utility\ConfigurationUtility');
