@@ -23,20 +23,22 @@
  ***************************************************************/
 
 /**
- * A View Helper which returns the "content" of a SimplePie item.
+ * A View Helper which returns a "tag" of a SimplePie item.
  */
-class Tx_RssDisplay_ViewHelpers_Item_ContentViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+class Tx_RssDisplay_ViewHelpers_Item_GetViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 
 	/**
-	 * Retrieve the SimplePie item from the context and return its "content".
+	 * Retrieve the SimplePie item from the context and return its "tag".
 	 *
+	 * @param string $value
 	 * @return string
 	 */
-	public function render() {
+	public function render($value) {
 
 		/** @var SimplePie_Item $item */
 		$item = $this->templateVariableContainer->get('item');
-		return $item->get_content();
+		$method = 'get_' . $value;
+		return $item->$method();
 	}
 }
 

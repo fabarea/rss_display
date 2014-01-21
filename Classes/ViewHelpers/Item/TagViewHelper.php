@@ -23,20 +23,23 @@
  ***************************************************************/
 
 /**
- * A View Helper which returns the "content" of a SimplePie item.
+ * A View Helper which returns a "tag" of a SimplePie item.
  */
-class Tx_RssDisplay_ViewHelpers_Item_ContentViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+class Tx_RssDisplay_ViewHelpers_Item_TagViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 
 	/**
-	 * Retrieve the SimplePie item from the context and return its "content".
+	 * Retrieve the SimplePie item from the context and return its "tag".
+	 * Example of namespace: http://purl.org/dc/elements/1.1/
 	 *
+	 * @param string $namespace
+	 * @param string $tag
 	 * @return string
 	 */
-	public function render() {
+	public function render($namespace, $tag) {
 
 		/** @var SimplePie_Item $item */
 		$item = $this->templateVariableContainer->get('item');
-		return $item->get_content();
+		return $item->get_item_tags($namespace, $tag);
 	}
 }
 

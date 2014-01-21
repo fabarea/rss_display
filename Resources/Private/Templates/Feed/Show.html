@@ -14,16 +14,18 @@
 	<ul class="tx-rssdisplay-list">
 		<f:for each="{items}" as="item">
 			<li class="tx-rssdisplay-item">
-			<span class="tx-rssdisplay-item-title">
-				<f:if condition="{item.link}">
-					<f:then>
-						<f:link.external uri="{item.link}" target="_blank">{item.title}</f:link.external>
-					</f:then>
-					<f:else>
-						<span>{item.title}</span>
-					</f:else>
-				</f:if>
-			</span>
+				<span class="tx-rssdisplay-item-title">
+					<f:if condition="{feed:item.link()}">
+						<f:then>
+							<f:link.external uri="{feed:item.link()}">
+								<feed:item.title/>
+							</f:link.external>
+						</f:then>
+						<f:else>
+							<feed:item.title/>
+						</f:else>
+					</f:if>
+				</span>
 
 				<p class="tx-rssdisplay-item-description">
 					<feed:item.content/>

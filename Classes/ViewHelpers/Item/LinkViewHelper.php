@@ -23,12 +23,12 @@
  ***************************************************************/
 
 /**
- * A View Helper which returns the "content" of a SimplePie item.
+ * A View Helper which returns the "link" of a SimplePie item.
  */
-class Tx_RssDisplay_ViewHelpers_Item_ContentViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+class Tx_RssDisplay_ViewHelpers_Item_LinkViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 
 	/**
-	 * Retrieve the SimplePie item from the context and return its "content".
+	 * Retrieve the SimplePie item from the context and return its "link".
 	 *
 	 * @return string
 	 */
@@ -36,7 +36,7 @@ class Tx_RssDisplay_ViewHelpers_Item_ContentViewHelper extends Tx_Fluid_Core_Vie
 
 		/** @var SimplePie_Item $item */
 		$item = $this->templateVariableContainer->get('item');
-		return $item->get_content();
+		return $item->get_link();
 	}
 }
 
