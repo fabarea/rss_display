@@ -46,33 +46,34 @@ class ext_update {
 	public function updateNewIdentity() {
 
 		$condition = "list_type='rss_display_pi1'";
-		$rows = $this->getDatabaseConnection()->exec_SELECTgetRows('uid,list_type', 'tt_content', $condition);
+		$rows = $this->getDatabaseConnection()->exec_SELECTgetRows('*', 'tt_content', $condition);
 		foreach ($rows as $row) {
-
-			//	tx_rssdisplay_descriptiondisplay
-			//	tx_rssdisplay_descriptionlength
-			//	tx_rssdisplay_cache_lifetime
 
 			$flexForm = sprintf('<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
         <sheet index="sDEF">
             <language index="lDEF">
-                <field index="settings.feed">
+                <field index="settings.feedUrl">
                     <value index="vDEF">%s</value>
                 </field>
                 <field index="settings.numberOfItems">
                     <value index="vDEF">%s</value>
                 </field>
                 <field index="settings.template">
-                    <value index="vDEF">EXT:rss_display/Resources/Private/Templates/Feed/Show.html</value>
+                    <value index="vDEF">%s</value>
+                </field>
+                <field index="settings.descriptionLength">
+                    <value index="vDEF">%s</value>
                 </field>
             </language>
         </sheet>
     </data>
 </T3FlexForms>',
 				$row['tx_rssdisplay_feed'],
-				$row['tx_rssdisplay_quantity']
+				$row['tx_rssdisplay_quantity'],
+				$row['tx_rssdisplay_descriptiondisplay'] == 1 ? 'EXT:rss_display/Resources/Private/Templates/Feed/Show.html' : 'EXT:rss_display/Resources/Private/Templates/Feed/ShowWithoutDescription.html',
+				$row['tx_rssdisplay_descriptionlength']
 			);
 
 			$values = array(
@@ -80,7 +81,7 @@ class ext_update {
 				'pi_flexform' => $flexForm,
 			);
 
-			#$this->getDatabaseConnection()->exec_UPDATEquery('tt_content', 'uid=' . intval($row['uid']), $values);
+			$this->getDatabaseConnection()->exec_UPDATEquery('tt_content', 'uid=' . intval($row['uid']), $values);
 		}
 
 		$result = '<strong>Update plugin signature "rssdisplay_pi1"</strong><br/>';
