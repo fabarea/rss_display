@@ -10,9 +10,9 @@
 				</TCEforms>
 				<type>array</type>
 				<el>
-					<settings.feed>
+					<settings.feedUrl>
 						<TCEforms>
-							<label>LLL:EXT:rss_display/locallang_db.xml:tt_content.tx_rssdisplay_feed</label>
+							<label>LLL:EXT:rss_display/locallang_db.xml:tt_content.tx_rssdisplay_feedUrl</label>
 							<config>
 								<type>input</type>
 								<size>50</size>
@@ -20,7 +20,7 @@
 								<default>http://www.w3.org/blog/news/feed/atom</default>
 							</config>
 						</TCEforms>
-					</settings.feed>
+					</settings.feedUrl>
 					<settings.numberOfItems>
 						<TCEforms>
 							<label>LLL:EXT:rss_display/locallang_db.xml:tt_content.tx_rssdisplay_numberOfItems</label>

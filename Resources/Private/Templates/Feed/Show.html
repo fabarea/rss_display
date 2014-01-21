@@ -1,27 +1,36 @@
-<div class="tx-rssdisplay-title">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"
+      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers"
+      xmlns:feed1="http://typo3.org/ns/TYPO3/CMS/RssDisplay/ViewHelpers"> <!-- after 6.2 migration -->
+
+{namespace feed=Tx_RssDisplay_ViewHelpers}
+
+<f:layout name="Default"/>
+
+<f:section name="content">
 	<h2>
 		<a href="{titleLink}" target='_blank'>{title}</a>
 	</h2>
-asdfsdf
+
 	<ul class="tx-rssdisplay-list">
 		<f:for each="{items}" as="item">
 			<li class="tx-rssdisplay-item">
-				<span class="tx-rssdisplay-item-title">
-					<f:if condition="{item.link}">
-						<f:then>
-							<f:link.external uri="{item.link}" target="_blank">{item.title}</f:link.external>
-						</f:then>
-						<f:else>
-							<span>{item.title}</span>
-						</f:else>
-					</f:if>
-				</span>
-				<f:if condition="{descriptionDisplay}">
-					<p  class="tx-rssdisplay-item-description">
-						<f:format.crop maxCharacters="{max}" append="&nbsp;[...]">{item.description}</f:format.crop>
-					</p>
+			<span class="tx-rssdisplay-item-title">
+				<f:if condition="{item.link}">
+					<f:then>
+						<f:link.external uri="{item.link}" target="_blank">{item.title}</f:link.external>
+					</f:then>
+					<f:else>
+						<span>{item.title}</span>
+					</f:else>
 				</f:if>
+			</span>
+
+				<p class="tx-rssdisplay-item-description">
+					<feed:item.content/>
+				</p>
 			</li>
 		</f:for>
 	</ul>
-</div>
+</f:section>
+
+</html>
