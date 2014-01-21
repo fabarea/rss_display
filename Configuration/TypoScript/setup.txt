@@ -1,12 +1,9 @@
-plugin.tx_rssdisplay_pi1 {
-	tags = title,link,description,pubDate
-	templateFile = EXT:rss_display/Resources/Private/Templates/Feed.html
-	cacheDuration = 3600
-}
-
 # Plugin configuration
 plugin.tx_rssdisplay {
 	settings {
+
+		cacheDuration = 3600
+
 		templates {
 
 			# rss_display_1 is just a key which must be unique

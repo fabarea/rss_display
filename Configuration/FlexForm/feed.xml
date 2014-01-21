@@ -42,6 +42,7 @@
 							</config>
 						</TCEforms>
 					</settings.template>
+					<!-- @todo add conditional configuration tx_rssdisplay_descriptionlength -->
 				</el>
 			</ROOT>
 		</sDEF>
