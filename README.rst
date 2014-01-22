@@ -67,7 +67,7 @@ In the plugin :
 
 .. image:: https://raw.github.com/TYPO3-extensions/rss_display/master/Documentation/Manual-05.png
 
-How it should appear (in orange) on the frontend.
+How it should look like on the Frontend.
 
 .. image:: https://raw.github.com/TYPO3-extensions/rss_display/master/Documentation/Manual-06.png
 
@@ -83,6 +83,8 @@ To smooth the migration, run the update wizard from the Extension Manager. The s
 and change the ``list_type`` plugin signature.
 
 It is recommended to backup table ``tt_content``!!!
+
+.. image:: https://raw.github.com/TYPO3-extensions/rss_display/master/Documentation/Manual-07.png
 
 
 Plugin type USER_INT vs USER
@@ -132,10 +134,18 @@ Some advanced View Helpers are explains below ::
 	# Retrieve a custom value from the item "author". See the API http://simplepie.org/wiki/reference/start#methods1
 	<feed:item.get value="author"/>
 
-	# Retrieve a custom tag value according to a namespace
-	<feed:item.tag namespace="http://purl.org/dc/elements/1.1/" tag="noticeType"/>
+	# Retrieve a value of a custom tag according to a namespace
+	<feed:item.tag namespace="http://purl.org/dc/elements/1.1/" tag="foo"/>
 
+	# Retrieve multiple values from a tag according to a namespace
+	# The example uses the shorthand syntax of Fluid - @see http://forge.typo3.org/issues/5033
+	<f:for each="{feed:item.tags(namespace: 'http://purl.org/dc/elements/1.1/' tag: 'bar')}" as="value">
+		{value}
+	</f:for>
 	{namespace feed=Tx_RssDisplay_ViewHelpers}
+
+
+
 
 .. _API: http://simplepie.org/wiki/reference/start#methods1
 
