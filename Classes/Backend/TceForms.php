@@ -50,11 +50,12 @@ class Tx_RssDisplay_Backend_TceForms {
 		$output = '';
 		if (is_array($configuration['settings']['templates'])) {
 
-			$values = t3lib_div::xml2array($params['row']['pi_flexform']);
-
 			$selectedItem = '';
-			if (!empty($values['data']['sDEF']['lDEF']['settings.template']['vDEF'])) {
-				$selectedItem = $values['data']['sDEF']['lDEF']['settings.template']['vDEF'];
+			if (!empty($params['row']['pi_flexform'])) {
+				$values = t3lib_div::xml2array($params['row']['pi_flexform']);
+				if (!empty($values['data']['sDEF']['lDEF']['settings.template'])) {
+					$selectedItem = $values['data']['sDEF']['lDEF']['settings.template']['vDEF'];
+				}
 			}
 
 			$options = array();
@@ -72,11 +73,6 @@ class Tx_RssDisplay_Backend_TceForms {
 			);
 		}
 		return $output;
-
-		#$backendConfiguration->setConfiguration(array('extensionName' => 'rssdisplay', 'pluginName' => 'pi1'));
-		#var_dump($backendConfiguration->getConfiguration('RssDisplay', 'Pi1'));
-		#var_dump($backendConfiguration->getConfiguration('rss_display', 'pi1'));
-		exit();
 	}
 
 	/**
