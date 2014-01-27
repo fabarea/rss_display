@@ -10,7 +10,7 @@
 
 $EM_CONF[$_EXTKEY] = array (
   'title' => 'RSS Feed Display',
-  'description' => 'Fetch the content of a RSS Feed and display it on the Frontend.',
+  'description' => 'Fetch a RSS / Atom Feed and display its content on the Frontend.',
   'category' => 'plugin',
   'shy' => 0,
   'version' => '2.1.0-dev',
