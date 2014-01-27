@@ -199,5 +199,3 @@ class Tx_RssDisplay_Controller_FeedController extends Tx_Extbase_MVC_Controller_
 		return $GLOBALS['typo3CacheFactory'];
 	}
 }
-
-?>

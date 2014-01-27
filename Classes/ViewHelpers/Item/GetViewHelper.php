@@ -41,5 +41,3 @@ class Tx_RssDisplay_ViewHelpers_Item_GetViewHelper extends Tx_Fluid_Core_ViewHel
 		return $item->$method();
 	}
 }
-
-?>

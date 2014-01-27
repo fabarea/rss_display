@@ -39,5 +39,3 @@ class Tx_RssDisplay_ViewHelpers_Item_ContentViewHelper extends Tx_Fluid_Core_Vie
 		return $item->get_content();
 	}
 }
-
-?>

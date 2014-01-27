@@ -39,5 +39,3 @@ class Tx_RssDisplay_ViewHelpers_Item_LinkViewHelper extends Tx_Fluid_Core_ViewHe
 		return $item->get_link();
 	}
 }
-
-?>

@@ -39,5 +39,3 @@ class Tx_RssDisplay_ViewHelpers_Item_TitleViewHelper extends Tx_Fluid_Core_ViewH
 		return $item->get_title();
 	}
 }
-
-?>

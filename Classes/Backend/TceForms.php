@@ -90,5 +90,3 @@ class Tx_RssDisplay_Backend_TceForms {
 		return $pluginConfiguration;
 	}
 }
-
-?>

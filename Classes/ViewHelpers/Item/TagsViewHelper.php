@@ -51,5 +51,3 @@ class Tx_RssDisplay_ViewHelpers_Item_TagsViewHelper extends Tx_Fluid_Core_ViewHe
 		return $result;
 	}
 }
-
-?>
