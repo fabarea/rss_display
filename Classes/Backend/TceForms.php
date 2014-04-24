@@ -21,6 +21,7 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Backend integration with TCEforms
@@ -36,10 +37,12 @@ class Tx_RssDisplay_Backend_TceForms {
 	 */
 	public function renderTemplateMenu(&$params, &$tsObj) {
 
-
-		#/** @var $objectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
-		#$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
-		$objectManager = t3lib_div::makeInstance('Tx_Extbase_Object_Manager');
+		/** @var $objectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
+		if ($this->isVersionHigherOrEqualToVersionSix()) {
+			$objectManager = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
+		} else {
+			$objectManager = t3lib_div::makeInstance('Tx_Extbase_Object_Manager');
+		}
 
 		/** @var Tx_Extbase_Configuration_BackendConfigurationManager $configurationManager */
 		$configurationManager = $objectManager->get('Tx_Extbase_Configuration_BackendConfigurationManager');
@@ -85,8 +88,27 @@ class Tx_RssDisplay_Backend_TceForms {
 	protected function getPluginConfiguration(array $setup, $extensionName) {
 		$pluginConfiguration = array();
 		if (is_array($setup['plugin.']['tx_' . strtolower($extensionName) . '.'])) {
-			$pluginConfiguration = Tx_Extbase_Utility_TypoScript::convertTypoScriptArrayToPlainArray($setup['plugin.']['tx_' . strtolower($extensionName) . '.']);
+			if ($this->isVersionHigherOrEqualToVersionSix()) {
+				/** @var \TYPO3\CMS\Extbase\Service\TypoScriptService $typoScriptService */
+				$typoScriptService = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Service\TypoScriptService');
+				$pluginConfiguration = $typoScriptService->convertTypoScriptArrayToPlainArray($setup['plugin.']['tx_' . strtolower($extensionName) . '.']);
+			} else {
+				$pluginConfiguration = Tx_Extbase_Utility_TypoScript::convertTypoScriptArrayToPlainArray($setup['plugin.']['tx_' . strtolower($extensionName) . '.']);
+			}
 		}
 		return $pluginConfiguration;
+	}
+
+	/**
+	 * Tell whether current CMS version is greater or equal than 6.0.
+	 *
+	 * @return bool
+	 */
+	protected function isVersionHigherOrEqualToVersionSix() {
+		$version = class_exists('t3lib_utility_VersionNumber') ?
+			t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) :
+			TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
+
+		return $version >= 6000000;
 	}
 }
