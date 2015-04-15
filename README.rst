@@ -1,5 +1,5 @@
 RSS Display
-==================
+===========
 
 Display the content elements of the RSS feed on the frontend.
 The extension is wrapping `SimplePie`_ as low level library for fetching and parsing the feed. `SimplePie`_ is a fast and well tested library for RSS / Atom.
@@ -14,49 +14,38 @@ Features:
 .. _SimplePie: https://github.com/simplepie/simplepie
 
 Screenshots
---------------------
+-----------
 
 In one picture!
 
-.. image:: https://raw.github.com/TYPO3-extensions/rss_display/master/Documentation/Manual-01.png
+.. image:: https://raw.github.com/fabarea/rss_display/master/Documentation/Manual-01.png
 
 
 Project info and releases
------------------------------------
+-------------------------
 
-Stable version:
+Stable:
 http://typo3.org/extensions/repository/view/rss_display
 
-Development version:
-https://git.typo3.org/TYPO3CMS/Extensions/rss_display.git
-
-::
-
-	git clone git://git.typo3.org/TYPO3CMS/Extensions/rss_display.git
-
-Github mirror:
-https://github.com/TYPO3-extensions/rss_display
-
-
-Flash news about latest development or release
-http://twitter.com/fudriot
+Development:
+https://git.typo3.org/fabarea/Extensions/rss_display.git
 
 
 Users manual
---------------------
+------------
 
 To display a RSS feed on the page :
 Click on the page where the RSS feed should be displayed and create a new content element.
 
-.. image:: https://raw.github.com/TYPO3-extensions/rss_display/master/Documentation/Manual-02.png
+.. image:: https://raw.github.com/fabarea/rss_display/master/Documentation/Manual-02.png
 
 Choose the "Plugins" tab and then "RSS Feed Display".
 
-.. image:: https://raw.github.com/TYPO3-extensions/rss_display/master/Documentation/Manual-03.png
+.. image:: https://raw.github.com/fabarea/rss_display/master/Documentation/Manual-03.png
 
 Write a header if needed ant choose "Plugin" tab.
 
-.. image:: https://raw.github.com/TYPO3-extensions/rss_display/master/Documentation/Manual-04.png
+.. image:: https://raw.github.com/fabarea/rss_display/master/Documentation/Manual-04.png
 
 In the plugin :
 1. Write the feed url
@@ -65,18 +54,18 @@ In the plugin :
 4. If number 3 is ticked, choose the description's length
 5. Save and close
 
-.. image:: https://raw.github.com/TYPO3-extensions/rss_display/master/Documentation/Manual-05.png
+.. image:: https://raw.github.com/fabarea/rss_display/master/Documentation/Manual-05.png
 
 How it should look like on the Frontend.
 
-.. image:: https://raw.github.com/TYPO3-extensions/rss_display/master/Documentation/Manual-06.png
+.. image:: https://raw.github.com/fabarea/rss_display/master/Documentation/Manual-06.png
 
 
 Administration
-====================
+==============
 
 Migration towards 2.0
-------------------------
+---------------------
 
 Extension version 2.0 has been rewritten using Extbase as underlying framework. The database structure was changed.
 To smooth the migration, run the update wizard from the Extension Manager. The script will take care of building the Flex Form
@@ -84,11 +73,11 @@ and change the ``list_type`` plugin signature.
 
 It is recommended to backup table ``tt_content``!!!
 
-.. image:: https://raw.github.com/TYPO3-extensions/rss_display/master/Documentation/Manual-07.png
+.. image:: https://raw.github.com/fabarea/rss_display/master/Documentation/Manual-07.png
 
 
 Plugin type USER_INT vs USER
--------------------------------------
+----------------------------
 
 In the Extension Manager, it can be decided whether to handle the cache by the plugin or by the global cache preferences.
 This is known to be `USER_INT vs USER`_. If set to USER_INT the default cache duration is 3600 seconds and can be changed by TS.
@@ -97,14 +86,14 @@ If set to USER the cache is as long as the cache page is configured. Do clear TY
 .. _USER_INT vs USER: http://docs.typo3.org/typo3cms/TyposcriptReference/6.0/ContentObjects/UserAndUserInt/Index.html
 
 Avoiding cache
-----------------------
+--------------
 
 Whenever RSS Display detects the parameter ``no_cache=1`` in the URL, the Caching Framework is skipped. This is convenient in development mode or
 for forcing the cache to be regenerated.
 
 
 Add a custom Template
---------------------------
+---------------------
 
 RSS Display is flexible enough to add a custom template which is then display in the drop down menu in the BE. The BE User can then pick this custom template.
 New template must be added / configured by TypoScript like::
@@ -126,7 +115,7 @@ New template must be added / configured by TypoScript like::
 
 
 View Helpers
--------------------------
+------------
 
 RSS Display has various View Helpers to interact with a SimplePie object which provides an `API`_ for fetching data from a feed item.
 Some advanced View Helpers are explains below ::
@@ -150,7 +139,7 @@ Some advanced View Helpers are explains below ::
 .. _API: http://simplepie.org/wiki/reference/start#methods1
 
 Configuration
-=================
+=============
 
 .. ...............................................................
 .. container:: table-row
