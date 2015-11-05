@@ -28,8 +28,12 @@ Stable:
 http://typo3.org/extensions/repository/view/rss_display
 
 Development:
-https://git.typo3.org/fabarea/Extensions/rss_display.git
+https://github.com/fabarea/rss_display
 
+Installation
+------------
+
+Just install the Extension as normal in the Extension Manager and create a content element of type RSS Display.
 
 Users manual
 ------------

@@ -37,8 +37,7 @@
 							<label>LLL:EXT:rss_display/locallang_db.xml:tt_content.tx_rssdisplay_template</label>
 							<config>
 								<type>user</type>
-								<!--<userFunc>EXT:rss_display/Classes/Backend/TceForms.php:TYPO3\CMS\RssDisplay\Backend\TceForms->render</userFunc>-->
-								<userFunc>EXT:rss_display/Classes/Backend/TceForms.php:Tx_RssDisplay_Backend_TceForms->renderTemplateMenu</userFunc>
+								<userFunc>EXT:rss_display/Classes/Backend/TceForms.php:Fab\RssDisplay\Backend\TceForms->renderTemplateMenu</userFunc>
 							</config>
 						</TCEforms>
 					</settings.template>

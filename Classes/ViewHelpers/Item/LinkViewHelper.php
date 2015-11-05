@@ -13,10 +13,12 @@
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 /**
  * A View Helper which returns the "link" of a SimplePie item.
  */
-class Tx_RssDisplay_ViewHelpers_Item_LinkViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper
+class Tx_RssDisplay_ViewHelpers_Item_LinkViewHelper extends AbstractViewHelper
 {
 
     /**

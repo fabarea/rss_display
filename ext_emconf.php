@@ -12,44 +12,27 @@ $EM_CONF[$_EXTKEY] = array (
   'title' => 'RSS Feed Display',
   'description' => 'Fetch a RSS / Atom Feed and display its content on the Frontend.',
   'category' => 'plugin',
-  'shy' => 0,
-  'version' => '2.2.0-dev',
-  'dependencies' => '',
-  'conflicts' => '',
-  'priority' => '',
-  'loadOrder' => '',
-  'module' => '',
+  'version' => '3.0.0',
   'state' => 'stable',
-  'uploadfolder' => 0,
-  'createDirs' => '',
-  'modify_tables' => '',
-  'clearcacheonload' => 0,
-  'lockType' => '',
   'author' => 'Fabien Udriot',
   'author_email' => 'fabien.udriot@ecodev.ch',
   'author_company' => 'Ecodev',
-  'CGLcompliance' => '',
-  'CGLcompliance_note' => '',
-  'constraints' => 
+  'constraints' =>
   array (
-    'depends' => 
+    'depends' =>
     array (
-      'typo3' => '4.5.0-6.2.99',
+      'typo3' => '7.5.0-7.99.99',
       'fluid' => '',
       'extbase' => '',
     ),
-    'conflicts' => 
+    'conflicts' =>
     array (
     ),
-    'suggests' => 
+    'suggests' =>
     array (
     ),
   ),
-  'suggests' => 
+  'suggests' =>
   array (
   ),
-  'user' => 'fab1en',
-  'comment' => 'Change log http://forge.typo3.org/projects/extension-rss_display/versions/2645',
 );
-
-?>

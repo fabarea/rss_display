@@ -13,11 +13,13 @@
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 
 /**
  * A View Helper which returns a "tag" of a SimplePie item.
  */
-class Tx_RssDisplay_ViewHelpers_Item_TagViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper
+class Tx_RssDisplay_ViewHelpers_Item_TagViewHelper extends AbstractViewHelper
 {
 
     /**

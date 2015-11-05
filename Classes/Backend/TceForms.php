@@ -1,4 +1,5 @@
 <?php
+namespace Fab\RssDisplay\Backend;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -14,11 +15,13 @@
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Configuration\BackendConfigurationManager;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 /**
- * Backend integration with TCEforms
+ * Backend integration with TCEForms
  */
-class Tx_RssDisplay_Backend_TceForms
+class TceForms
 {
 
     /**
@@ -31,15 +34,7 @@ class Tx_RssDisplay_Backend_TceForms
     public function renderTemplateMenu(&$params, &$tsObj)
     {
 
-        /** @var $objectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
-        if ($this->isVersionHigherOrEqualToVersionSix()) {
-            $objectManager = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
-        } else {
-            $objectManager = t3lib_div::makeInstance('Tx_Extbase_Object_Manager');
-        }
-
-        /** @var Tx_Extbase_Configuration_BackendConfigurationManager $configurationManager */
-        $configurationManager = $objectManager->get('Tx_Extbase_Configuration_BackendConfigurationManager');
+        $configurationManager = $this->getObjectManager()->get(BackendConfigurationManager::class);
 
         $setup = $configurationManager->getTypoScriptSetup();
         $configuration = $this->getPluginConfiguration($setup, 'rssdisplay');
@@ -49,7 +44,7 @@ class Tx_RssDisplay_Backend_TceForms
 
             $selectedItem = '';
             if (!empty($params['row']['pi_flexform'])) {
-                $values = t3lib_div::xml2array($params['row']['pi_flexform']);
+                $values = $params['row']['pi_flexform'];
                 if (!empty($values['data']['sDEF']['lDEF']['settings.template'])) {
                     $selectedItem = $values['data']['sDEF']['lDEF']['settings.template']['vDEF'];
                 }
@@ -83,28 +78,19 @@ class Tx_RssDisplay_Backend_TceForms
     {
         $pluginConfiguration = array();
         if (is_array($setup['plugin.']['tx_' . strtolower($extensionName) . '.'])) {
-            if ($this->isVersionHigherOrEqualToVersionSix()) {
-                /** @var \TYPO3\CMS\Extbase\Service\TypoScriptService $typoScriptService */
-                $typoScriptService = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Service\TypoScriptService');
-                $pluginConfiguration = $typoScriptService->convertTypoScriptArrayToPlainArray($setup['plugin.']['tx_' . strtolower($extensionName) . '.']);
-            } else {
-                $pluginConfiguration = Tx_Extbase_Utility_TypoScript::convertTypoScriptArrayToPlainArray($setup['plugin.']['tx_' . strtolower($extensionName) . '.']);
-            }
+            /** @var \TYPO3\CMS\Extbase\Service\TypoScriptService $typoScriptService */
+            $typoScriptService = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Service\TypoScriptService');
+            $pluginConfiguration = $typoScriptService->convertTypoScriptArrayToPlainArray($setup['plugin.']['tx_' . strtolower($extensionName) . '.']);
         }
         return $pluginConfiguration;
     }
 
     /**
-     * Tell whether current CMS version is greater or equal than 6.0.
-     *
-     * @return bool
+     * @return ObjectManager
      */
-    protected function isVersionHigherOrEqualToVersionSix()
+    protected function getObjectManager()
     {
-        $version = class_exists('t3lib_utility_VersionNumber') ?
-            t3lib_utility_VersionNumber::convertVersionNumberToInteger(TYPO3_version) :
-            TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
-
-        return $version >= 6000000;
+        return GeneralUtility::makeInstance(ObjectManager::class);
     }
+
 }
