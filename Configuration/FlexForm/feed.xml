@@ -12,7 +12,7 @@
 				<el>
 					<settings.feedUrl>
 						<TCEforms>
-							<label>LLL:EXT:rss_display/locallang_db.xml:tt_content.tx_rssdisplay_feedUrl</label>
+							<label>LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:tt_content.tx_rssdisplay_feedUrl</label>
 							<config>
 								<type>input</type>
 								<size>50</size>
@@ -23,7 +23,7 @@
 					</settings.feedUrl>
 					<settings.numberOfItems>
 						<TCEforms>
-							<label>LLL:EXT:rss_display/locallang_db.xml:tt_content.tx_rssdisplay_numberOfItems</label>
+							<label>LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:tt_content.tx_rssdisplay_numberOfItems</label>
 							<config>
 								<type>input</type>
 								<size>30</size>
@@ -34,7 +34,7 @@
 					</settings.numberOfItems>
 					<settings.template>
 						<TCEforms>
-							<label>LLL:EXT:rss_display/locallang_db.xml:tt_content.tx_rssdisplay_template</label>
+							<label>LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:tt_content.tx_rssdisplay_template</label>
 							<config>
 								<type>user</type>
 								<userFunc>EXT:rss_display/Classes/Backend/TceForms.php:Fab\RssDisplay\Backend\TceForms->renderTemplateMenu</userFunc>

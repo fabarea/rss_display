@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages">
+		<header/>
+		<body>
+			<trans-unit id="tt_content.tx_rssdisplay_feedUrl">
+				<source>Feed URL</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_rssdisplay_numberOfItems">
+				<source>Number of items to be displayed (&gt;1)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_rssdisplay_template">
+				<source>Template</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_rssdisplay_descriptionlength">
+				<source>Length of the description (characters)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.list_type_pi1">
+				<source>RSS Feed Display</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
