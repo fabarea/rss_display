@@ -121,6 +121,8 @@ class FeedController extends ActionController
     { // Create a new instance of the SimplePie object and fetch the feed.
         $feed = new \SimplePie();
         $feed->set_feed_url($feedUrl);
+        $location = PATH_site . 'typo3temp';
+        $feed->set_cache_location($location);
         $feed->init();
         return $feed;
     }
