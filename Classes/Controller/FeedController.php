@@ -120,7 +120,8 @@ class FeedController extends ActionController
     protected function getSimplePie($feedUrl)
     { // Create a new instance of the SimplePie object and fetch the feed.
         $feed = new \SimplePie();
-        $feed->set_feed_url($feedUrl);
+        //external request by use of a proxy
+        $feed->set_raw_data(\TYPO3\CMS\Core\Utility\GeneralUtility::getUrl($feedUrl));
         $location = PATH_site . 'typo3temp';
         $feed->set_cache_location($location);
         $feed->init();
