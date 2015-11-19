@@ -2,5 +2,5 @@
     "name": "typo3cms/rss_display",
     "description": "Fetch a RSS / Atom Feed and display its content on the Frontend.",
     "type": "typo3-cms-extension",
-    "version": "3.0.1"
+    "version": "3.1.0-dev"
 }
