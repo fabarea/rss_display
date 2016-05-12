@@ -135,6 +135,12 @@ Some advanced View Helpers are explains below ::
 	<f:for each="{feed:item.tags(namespace: 'http://purl.org/dc/elements/1.1/' tag: 'bar')}" as="value">
 		{value}
 	</f:for>
+	
+	# Display an enclosed image
+	<f:if condition="{feed:item.enclosure(attribute:'url')}">
+		<img src="{feed:item.enclosure(attribute:'url')}" alt>
+	</f:if>
+
 	{namespace feed=Tx_RssDisplay_ViewHelpers}
 
 

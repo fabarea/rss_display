@@ -44,9 +44,9 @@ class TceForms
 
             $selectedItem = '';
             if (!empty($params['row']['pi_flexform'])) {
-                $values = $params['row']['pi_flexform'];
-                if (!empty($values['data']['sDEF']['lDEF']['settings.template'])) {
-                    $selectedItem = $values['data']['sDEF']['lDEF']['settings.template']['vDEF'];
+                $flexform = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($params['row']['pi_flexform']);
+                if (!empty($flexform['data']['sDEF']['lDEF']['settings.template'])) {
+                    $selectedItem = $flexform['data']['sDEF']['lDEF']['settings.template']['vDEF'];
                 }
             }
 
