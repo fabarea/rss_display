@@ -8,7 +8,8 @@
     ],
     "keywords": [
         "TYPO3 CMS",
-        "generic listing"
+        "RSS feed",
+        "Atom"
     ],
     "support": {
         "issues": "https://github.com/fabarea/rss_display/issues"
