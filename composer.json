@@ -1,6 +1,25 @@
 {
-    "name": "typo3cms/rss_display",
-    "description": "Fetch a RSS / Atom Feed and display its content on the Frontend.",
+    "name": "fab/rss_display",
     "type": "typo3-cms-extension",
-    "version": "3.1.0-dev"
+    "description": "Fetch a RSS / Atom Feed and display its content on the Frontend.",
+    "homepage": "https://github.com/fabarea/rss_display",
+    "license": [
+        "GPL-2.0+"
+    ],
+    "keywords": [
+        "TYPO3 CMS",
+        "generic listing"
+    ],
+    "support": {
+        "issues": "https://github.com/fabarea/rss_display/issues"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fab\\RssDisplay\\": "Classes/"
+        }
+    },
+    "replace": {
+        "rss_display": "self.version",
+        "typo3-ter/rss-display": "self.version"
+    }
 }
