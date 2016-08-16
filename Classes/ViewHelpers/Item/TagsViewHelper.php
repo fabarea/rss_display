@@ -1,4 +1,5 @@
 <?php
+namespace Fab\RssDisplay\ViewHelpers\Item;
 
 /*
  * This file is part of the Fab/RssDisplay project under GPLv2 or later.
@@ -7,12 +8,13 @@
  * LICENSE.md file that was distributed with this source code.
  */
 
+use SimplePie_Item;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * A View Helper which returns multiple "tags" of a SimplePie item.
  */
-class Tx_RssDisplay_ViewHelpers_Item_TagsViewHelper extends AbstractViewHelper
+class TagsViewHelper extends AbstractViewHelper
 {
 
     /**
@@ -22,6 +24,7 @@ class Tx_RssDisplay_ViewHelpers_Item_TagsViewHelper extends AbstractViewHelper
      * @param string $namespace
      * @param string $tag
      * @return array
+     * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception\InvalidVariableException
      */
     public function render($namespace, $tag)
     {
@@ -31,7 +34,7 @@ class Tx_RssDisplay_ViewHelpers_Item_TagsViewHelper extends AbstractViewHelper
         $values = $item->get_item_tags($namespace, $tag);
 
         $result = array();
-        if (!empty($values)) {
+        if (is_array($values)) {
             foreach ($values as $value) {
                 $result[] = $value['data'];
             }

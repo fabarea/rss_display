@@ -135,7 +135,7 @@ Some advanced View Helpers are explains below ::
 	<f:for each="{feed:item.tags(namespace: 'http://purl.org/dc/elements/1.1/' tag: 'bar')}" as="value">
 		{value}
 	</f:for>
-	{namespace feed=Tx_RssDisplay_ViewHelpers}
+	{namespace feed=Fab\RssDisplay\ViewHelpers}
 
 
 
