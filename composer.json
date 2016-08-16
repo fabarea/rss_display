@@ -1,5 +1,5 @@
 {
-    "name": "fab/rss_display",
+    "name": "fab/rss-display",
     "type": "typo3-cms-extension",
     "description": "Fetch a RSS / Atom Feed and display its content on the Frontend.",
     "homepage": "https://github.com/fabarea/rss_display",
