@@ -1,2 +1,5 @@
 # cat=basic//; type=options[USER_INT,USER]; label= Caching behaviour: Decide whether to handle the cache by the plugin or by the global cache preferences. If set to USER_INT the default cache duration is 3600 seconds and can be changed by TS. If set to USER the cache is as long as the cache page is configured. Do clear TYPO3 cache when changing this value!!
 plugin_type = USER_INT
+
+# cat=basic//; type=boolean; label=Autoload TypoScript: If enabled, the extension will automatically load the TypoScript setup that is required. When un-checking make sure to include / load the TypoScript on your own as a Static TypoScript.
+autoload_typoscript = 1
