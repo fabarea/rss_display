@@ -3,6 +3,14 @@
 	<file source-language="en" datatype="plaintext" original="messages">
 		<header/>
 		<body>
+			<!-- Wizard -->
+			<trans-unit id="wizard.title">
+				<source>RSS Feed Display</source>
+			</trans-unit>
+			<trans-unit id="wizard.description">
+				<source>Fetch a RSS / Atom Feed and display its content.</source>
+			</trans-unit>
+
 			<trans-unit id="tt_content.tx_rssdisplay_feedUrl">
 				<source>Feed URL</source>
 			</trans-unit>

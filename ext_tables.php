@@ -17,3 +17,5 @@ $configuration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['rss_
 if (true === isset($configuration['autoload_typoscript']['value']) && true === (bool)$configuration['autoload_typoscript']['value']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('rss_display', 'Configuration/TypoScript', 'RSS Display: display a RSS / Atom feed');
 }
+
+$GLOBALS['TBE_MODULES_EXT']["xMOD_db_new_content_el"]['addElClasses'][\Fab\RssDisplay\Backend\Wizard::class] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('rss_display') . 'Classes/Backend/Wizard.php';

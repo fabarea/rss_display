@@ -28,17 +28,15 @@ if (false === isset($configuration['autoload_typoscript']) || true === (bool)$co
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'Fab.rss_display',
     'Pi1',
-    array('Feed' => 'show'),
-    $pluginType === 'USER_INT' ? array('Feed' => 'show') : array()
+    ['Feed' => 'show'],
+    $pluginType === 'USER_INT' ? ['Feed' => 'show'] : []
 );
 
-$TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay'] = array(
+$TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay'] = [
     'frontend' => 'TYPO3\CMS\Core\Cache\Frontend\StringFrontend',
 //	'options' => array(),
-    'groups' => array('all', 'rssdisplay')
-);
-
-
+    'groups' => ['all', 'rssdisplay']
+];
 
 # Install PSR-0-compatible class autoloader for SimplePie Library in Resources/PHP/SimplePie
 spl_autoload_register(function ($class) {
