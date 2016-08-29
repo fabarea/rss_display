@@ -24,6 +24,7 @@ class TceForms
      * @param array $params
      * @param object $tsObj
      * @return string
+     * @throws \InvalidArgumentException
      */
     public function renderTemplateMenu(&$params, &$tsObj)
     {
@@ -67,6 +68,7 @@ class TceForms
      * @param array $setup
      * @param string $extensionName
      * @return array
+     * @throws \InvalidArgumentException
      */
     protected function getPluginConfiguration(array $setup, $extensionName)
     {
