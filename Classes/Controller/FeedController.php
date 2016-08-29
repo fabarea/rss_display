@@ -24,6 +24,7 @@ class FeedController extends ActionController
 
     /**
      * Initialize object
+     * @throws \RuntimeException
      */
     public function initializeAction()
     {
@@ -34,7 +35,7 @@ class FeedController extends ActionController
         // Check the template is a valid URL
         if (FALSE === filter_var($this->settings['feedUrl'], FILTER_VALIDATE_URL)) {
             $message = sprintf('Feed URL is not valid "%s". Update your settings.', $this->settings['feedUrl']);
-            throw new \Exception($message, 1320651278);
+            throw new \RuntimeException($message, 1320651278);
         }
     }
 
@@ -58,6 +59,7 @@ class FeedController extends ActionController
         } else {
 
             $feed = $this->getSimplePie($this->settings['feedUrl']);
+
             $this->view->assign('title', $feed->get_title());
             $this->view->assign('items', $feed->get_items(0, $this->settings['numberOfItems']));
             $this->view->assign('settings', $this->settings);
