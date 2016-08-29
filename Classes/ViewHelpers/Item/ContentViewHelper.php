@@ -14,7 +14,7 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 /**
  * A View Helper which returns the "content" of a SimplePie item.
  */
-class Item_ContentViewHelper extends AbstractViewHelper
+class ContentViewHelper extends AbstractViewHelper
 {
 
     /**
