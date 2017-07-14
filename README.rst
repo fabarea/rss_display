@@ -124,6 +124,9 @@ View Helpers
 RSS Display has various View Helpers to interact with a SimplePie object which provides an `API`_ for fetching data from a feed item.
 Some advanced View Helpers are explains below ::
 
+	# Retrieve url of enclosed image
+	<feed:item.enclosure attribute="url"/>
+
 	# Retrieve a custom value from the item "author". See the API http://simplepie.org/wiki/reference/start#methods1
 	<feed:item.get value="author"/>
 
