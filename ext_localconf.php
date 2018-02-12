@@ -37,17 +37,18 @@ if (false === isset($configuration['autoload_typoscript']) || true === (bool)$co
 $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay']['frontend'] = \TYPO3\CMS\Core\Cache\Frontend\StringFrontend::class;
 $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay']['groups'] = ['all', 'rssdisplay'];
 
+if (!\TYPO3\CMS\Core\Core\Bootstrap::usesComposerClassLoading()) {
+    # Install PSR-0-compatible class autoloader for SimplePie Library in Resources/PHP/SimplePie
+    spl_autoload_register(function ($class) {
 
-# Install PSR-0-compatible class autoloader for SimplePie Library in Resources/PHP/SimplePie
-spl_autoload_register(function ($class) {
+        // Only load the class if it starts with "SimplePie"
+        if (strpos($class, 'SimplePie') !== 0) {
+            return;
+        }
 
-    // Only load the class if it starts with "SimplePie"
-    if (strpos($class, 'SimplePie') !== 0) {
-        return;
-    }
-
-    require sprintf('%sResources/Private/PHP/SimplePie/%s',
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('rss_display'),
-        DIRECTORY_SEPARATOR . str_replace('_', DIRECTORY_SEPARATOR, $class) . '.php'
-    );
-});
+        require sprintf('%sResources/Private/PHP/SimplePie/%s',
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('rss_display'),
+            DIRECTORY_SEPARATOR . str_replace('_', DIRECTORY_SEPARATOR, $class) . '.php'
+        );
+    });
+}
