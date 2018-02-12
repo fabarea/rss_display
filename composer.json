@@ -17,6 +17,9 @@
     "autoload": {
         "psr-4": {
             "Fab\\RssDisplay\\": "Classes/"
+        },
+        "psr-0": {
+            "SimplePie": "Resources/Private/PHP/SimplePie/"
         }
     },
     "replace": {
