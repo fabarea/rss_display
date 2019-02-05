@@ -18,14 +18,23 @@ class GetViewHelper extends AbstractViewHelper
 {
 
     /**
+     * @return void
+     */
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument('value', 'string', 'Name of value to return', true);
+    }
+
+    /**
      * Retrieve the SimplePie item from the context and return its "tag".
      *
-     * @param string $value
      * @return string
      * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception\InvalidVariableException
      */
-    public function render($value)
+    public function render()
     {
+        $value = $this->arguments['value'];
 
         /** @var SimplePie_Item $item */
         $item = $this->templateVariableContainer->get('item');
