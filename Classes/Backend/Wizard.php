@@ -8,7 +8,6 @@ namespace Fab\RssDisplay\Backend;
  * LICENSE.md file that was distributed with this source code.
  */
 
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /**
  * Class that adds the wizard icon.
@@ -26,7 +25,7 @@ class Wizard
     public function proc($wizardItems)
     {
         $wizardItems['plugins_tx_rssdisplay_pi1'] = array(
-            'icon' => ExtensionManagementUtility::extRelPath('rss_display') . 'ext_icon.png', #'Resources/Public/Images/RssDisplay.png',
+            'iconIdentifier' => 'plugins_tx_rssdisplay_pi1_wizard', // <- see ext_tables.php
             'title' => $this->getLanguageService()->sL('LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:wizard.title'),
             'description' => $this->getLanguageService()->sL('LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:wizard.description'),
             'params' => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=rssdisplay_pi1'
