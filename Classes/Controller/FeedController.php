@@ -143,13 +143,19 @@ class FeedController extends ActionController
      */
     protected function getPluginType()
     {
-        try {
-            $pluginType = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
-                ->get('rss_display', 'plugin_type');
-        } catch (ExtensionConfigurationExtensionNotConfiguredException $e) {
-            $pluginType = self::PLUGIN_TYPE_USER_INT;
-        } catch (ExtensionConfigurationPathDoesNotExistException $e) {
-            $pluginType = self::PLUGIN_TYPE_USER_INT;
+        if ( \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 9000000) {
+            try {
+                $pluginType = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
+                    ->get('rss_display', 'plugin_type');
+            } catch (ExtensionConfigurationExtensionNotConfiguredException $e) {
+                $pluginType = self::PLUGIN_TYPE_USER_INT;
+            } catch (ExtensionConfigurationPathDoesNotExistException $e) {
+                $pluginType = self::PLUGIN_TYPE_USER_INT;
+            }
+        } else {
+            $configurationUtility = $this->objectManager->get(ConfigurationUtility::class);
+            $configuration = $configurationUtility->getCurrentConfiguration('rss_display');
+            $pluginType = $configuration['plugin_type']['value'];
         }
 
         return $pluginType;
