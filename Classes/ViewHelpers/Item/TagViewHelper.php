@@ -9,14 +9,20 @@ namespace Fab\RssDisplay\ViewHelpers\Item;
  */
 
 use SimplePie_Item;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
-
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * A View Helper which returns a "tag" of a SimplePie item.
  */
 class TagViewHelper extends AbstractViewHelper
 {
+
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument('namespace', 'string', 'RSS element namespace', true);
+        $this->registerArgument('tag', 'string', 'RSS element name', true);
+    }
 
     /**
      * Retrieve the SimplePie item from the context and return its "tag".
@@ -27,12 +33,12 @@ class TagViewHelper extends AbstractViewHelper
      * @return string
      * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception\InvalidVariableException
      */
-    public function render($namespace, $tag)
+    public function render()
     {
 
         /** @var SimplePie_Item $item */
         $item = $this->templateVariableContainer->get('item');
-        $values = $item->get_item_tags($namespace, $tag);
+        $values = $item->get_item_tags($this->arguments['namespace'], $this->arguments['tag']);
 
         $result = '';
         if (is_array($values)) {
