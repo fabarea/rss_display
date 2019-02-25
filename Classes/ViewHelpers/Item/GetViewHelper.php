@@ -9,7 +9,7 @@ namespace Fab\RssDisplay\ViewHelpers\Item;
  */
 
 use SimplePie_Item;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * A View Helper which returns a "tag" of a SimplePie item.
