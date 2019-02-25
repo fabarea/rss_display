@@ -134,7 +134,7 @@ class FeedController extends ActionController
      */
     protected function getCacheIdentifier()
     {
-        return md5($this->settings['feedUrl']);
+        return md5($this->settings['feedUrl'] . $this->settings['template'] . $this->settings['numberOfItems']);
     }
 
     /**
