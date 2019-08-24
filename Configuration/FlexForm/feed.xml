@@ -16,7 +16,7 @@
 							<config>
 								<type>input</type>
 								<size>50</size>
-								<max>255</max>
+								<max>400</max>
 								<default>http://www.w3.org/blog/news/feed/atom</default>
 							</config>
 						</TCEforms>
