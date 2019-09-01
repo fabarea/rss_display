@@ -28,7 +28,7 @@ class LinkViewHelper extends AbstractViewHelper
 
         /** @var SimplePie_Item $item */
         $item = $this->templateVariableContainer->get('item');
-        return $item->get_link();
+        return htmlspecialchars_decode($item->get_link());
     }
 
 }
