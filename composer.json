@@ -23,7 +23,7 @@
         }
     },
     "replace": {
-        "rss_display": "self.version",
+        "fab/rss_display": "self.version",
         "typo3-ter/rss-display": "self.version"
     }
 }
