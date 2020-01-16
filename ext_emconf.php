@@ -4,7 +4,7 @@ $EM_CONF[$_EXTKEY] = [
     'title' => 'RSS Feed Display',
     'description' => 'Fetch a RSS / Atom Feed and display its content on the Frontend.',
     'category' => 'plugin',
-    'version' => '4.2.0-dev',
+    'version' => '4.3.0-dev',
     'state' => 'stable',
     'author' => 'Fabien Udriot',
     'author_email' => 'fabien@ecodev.ch',
@@ -16,7 +16,7 @@ $EM_CONF[$_EXTKEY] = [
         [
             'depends' =>
                 [
-                    'typo3' => '7.6.0-8.99.99',
+                    'typo3' => '9.5.0-9.5.99',
                 ],
             'conflicts' =>
                 [

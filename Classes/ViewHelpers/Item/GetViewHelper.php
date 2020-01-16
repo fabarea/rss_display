@@ -9,7 +9,7 @@ namespace Fab\RssDisplay\ViewHelpers\Item;
  */
 
 use SimplePie_Item;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * A View Helper which returns a "tag" of a SimplePie item.
@@ -18,15 +18,25 @@ class GetViewHelper extends AbstractViewHelper
 {
 
     /**
+     * @return void
+     */
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument('value', 'string', 'Name of value to return', true);
+        $this->registerArgument('arguments', 'array', 'Possible arguments', false, []);
+    }
+
+    /**
      * Retrieve the SimplePie item from the context and return its "tag".
      *
-     * @param string $value
-     * @param array $arguments
      * @return string
      * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception\InvalidVariableException
      */
-    public function render($value, $arguments = array())
+    public function render()
     {
+        $value = $this->arguments['value'];
+        $arguments = $this->arguments['arguments'];
 
         /** @var SimplePie_Item $item */
         $item = $this->templateVariableContainer->get('item');

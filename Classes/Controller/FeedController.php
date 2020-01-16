@@ -8,6 +8,9 @@ namespace Fab\RssDisplay\Controller;
  * LICENSE.md file that was distributed with this source code.
  */
 
+use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException;
+use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationPathDoesNotExistException;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extensionmanager\Utility\ConfigurationUtility;
@@ -131,7 +134,7 @@ class FeedController extends ActionController
      */
     protected function getCacheIdentifier()
     {
-        return md5($this->settings['feedUrl']);
+        return md5($this->settings['feedUrl'] . $this->settings['template'] . $this->settings['numberOfItems']);
     }
 
     /**
@@ -140,10 +143,20 @@ class FeedController extends ActionController
      */
     protected function getPluginType()
     {
-
-        $configurationUtility = $this->objectManager->get(ConfigurationUtility::class);
-        $configuration = $configurationUtility->getCurrentConfiguration('rss_display');
-        $pluginType = $configuration['plugin_type']['value'];
+        if ( \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 9000000) {
+            try {
+                $pluginType = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
+                    ->get('rss_display', 'plugin_type');
+            } catch (ExtensionConfigurationExtensionNotConfiguredException $e) {
+                $pluginType = self::PLUGIN_TYPE_USER_INT;
+            } catch (ExtensionConfigurationPathDoesNotExistException $e) {
+                $pluginType = self::PLUGIN_TYPE_USER_INT;
+            }
+        } else {
+            $configurationUtility = $this->objectManager->get(ConfigurationUtility::class);
+            $configuration = $configurationUtility->getCurrentConfiguration('rss_display');
+            $pluginType = $configuration['plugin_type']['value'];
+        }
 
         return $pluginType;
     }
