@@ -1,4 +1,5 @@
 <?php
+
 namespace Fab\RssDisplay\Controller;
 
 /*
@@ -8,12 +9,12 @@ namespace Fab\RssDisplay\Controller;
  * LICENSE.md file that was distributed with this source code.
  */
 
+use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException;
 use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationPathDoesNotExistException;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extensionmanager\Utility\ConfigurationUtility;
 
 /**
  * RSS display that will fetch the content of a RSS Feed and display it onto the Frontend.
@@ -113,8 +114,6 @@ class FeedController extends ActionController
 
     /**
      * Return a SimplePie object
-     * @todo wrap me in a Service
-     *
      * @param string $feedUrl
      * @return \SimplePie
      */
@@ -145,21 +144,15 @@ class FeedController extends ActionController
      */
     protected function getPluginType()
     {
-        if ( \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 9000000) {
-            try {
-                $pluginType = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
-                    ->get('rss_display', 'plugin_type');
-            } catch (ExtensionConfigurationExtensionNotConfiguredException $e) {
-                $pluginType = self::PLUGIN_TYPE_USER_INT;
-            } catch (ExtensionConfigurationPathDoesNotExistException $e) {
-                $pluginType = self::PLUGIN_TYPE_USER_INT;
-            }
-        } else {
-            $configurationUtility = $this->objectManager->get(ConfigurationUtility::class);
-            $configuration = $configurationUtility->getCurrentConfiguration('rss_display');
-            $pluginType = $configuration['plugin_type']['value'];
+        try {
+            /** @var ExtensionConfiguration $pluginType */
+            $pluginType = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ExtensionConfiguration::class)
+                ->get('rss_display', 'plugin_type');
+        } catch (ExtensionConfigurationExtensionNotConfiguredException $e) {
+            $pluginType = self::PLUGIN_TYPE_USER_INT;
+        } catch (ExtensionConfigurationPathDoesNotExistException $e) {
+            $pluginType = self::PLUGIN_TYPE_USER_INT;
         }
-
         return $pluginType;
     }
 
@@ -176,11 +169,11 @@ class FeedController extends ActionController
     /**
      * Return the Cache Manager
      *
-     * @return \TYPO3\CMS\Core\Cache\CacheManager
+     * @return object|CacheManager
      */
     protected function getCacheManager()
     {
-        return GeneralUtility::makeInstance('TYPO3\CMS\Core\Cache\CacheManager');
+        return GeneralUtility::makeInstance(CacheManager::class);
     }
 
 }
