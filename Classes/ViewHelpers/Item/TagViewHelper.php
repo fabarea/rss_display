@@ -31,7 +31,6 @@ class TagViewHelper extends AbstractViewHelper
      * @param string $namespace
      * @param string $tag
      * @return string
-     * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception\InvalidVariableException
      */
     public function render()
     {
