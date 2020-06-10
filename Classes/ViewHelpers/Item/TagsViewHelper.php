@@ -29,7 +29,6 @@ class TagsViewHelper extends AbstractViewHelper
      * Example of namespace: http://purl.org/dc/elements/1.1/
      *
      * @return array
-     * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception\InvalidVariableException
      */
     public function render()
     {

@@ -21,7 +21,6 @@ class TitleViewHelper extends AbstractViewHelper
      * Retrieve the SimplePie item from the context and return its "title".
      *
      * @return string
-     * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception\InvalidVariableException
      */
     public function render()
     {

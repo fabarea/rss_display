@@ -21,7 +21,6 @@ class ContentViewHelper extends AbstractViewHelper
      * Retrieve the SimplePie item from the context and return its "content".
      *
      * @return string
-     * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception\InvalidVariableException
      */
     public function render()
     {
