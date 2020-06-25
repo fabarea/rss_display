@@ -19,14 +19,13 @@ class TceForms
 {
 
     /**
-     * Render a template menu.
+     * Provide configured template entries to FlexForm.
      *
      * @param array $params
-     * @param object $tsObj
      * @return string
      * @throws \InvalidArgumentException
      */
-    public function renderTemplateMenu(&$params, &$tsObj)
+    public function getTemplateEntries(&$params)
     {
 
         $configurationManager = $this->getObjectManager()->get(BackendConfigurationManager::class);
@@ -34,32 +33,14 @@ class TceForms
         $setup = $configurationManager->getTypoScriptSetup();
         $configuration = $this->getPluginConfiguration($setup, 'rssdisplay');
 
-        $output = '';
         if (is_array($configuration['settings']['templates'])) {
 
-            $selectedItem = '';
-            if (!empty($params['row']['pi_flexform'])) {
-                $values = $params['row']['pi_flexform'];
-                if (!empty($values['data']['sDEF']['lDEF']['settings.template'])) {
-                    $selectedItem = $values['data']['sDEF']['lDEF']['settings.template']['vDEF'];
-                }
-            }
-
-            $options = array();
+            $output = [];
             foreach ($configuration['settings']['templates'] as $template) {
-                $options[] = sprintf('<option value="%s" %s>%s</option>',
-                    $template['path'],
-                    $selectedItem == $template['path'] ? 'selected="selected"' : '',
-                    $template['label']
-                );
+                $output[] = [$template['label'], $template['path']];
             }
-
-            $output = sprintf('<select name="data[tt_content][%s][pi_flexform][data][sDEF][lDEF][settings.template][vDEF]">%s</select>',
-                $params['row']['uid'],
-                implode("\n", $options)
-            );
+            $params['items'] = $output;
         }
-        return $output;
     }
 
     /**
@@ -74,8 +55,8 @@ class TceForms
     {
         $pluginConfiguration = array();
         if (is_array($setup['plugin.']['tx_' . strtolower($extensionName) . '.'])) {
-            /** @var \TYPO3\CMS\Extbase\Service\TypoScriptService $typoScriptService */
-            $typoScriptService = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Service\TypoScriptService');
+            /** @var \TYPO3\CMS\Core\TypoScript\TypoScriptService $typoScriptService */
+            $typoScriptService = GeneralUtility::makeInstance('TYPO3\CMS\Core\TypoScript\TypoScriptService');
             $pluginConfiguration = $typoScriptService->convertTypoScriptArrayToPlainArray($setup['plugin.']['tx_' . strtolower($extensionName) . '.']);
         }
         return $pluginConfiguration;

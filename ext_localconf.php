@@ -3,7 +3,7 @@ if (!defined('TYPO3_MODE')) die ('Access denied.');
 
 // Define whether USER or USER_INT.
 $pluginType = 'USER_INT';
-$configuration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['rss_display']);
+$configuration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['rss_display'];
 if (!empty($configuration['plugin_type'])) {
     $pluginType = $configuration['plugin_type'];
 }
@@ -34,8 +34,10 @@ if (false === isset($configuration['autoload_typoscript']) || true === (bool)$co
 
 // cache configuration, see
 // https://docs.typo3.org/typo3cms/CoreApiReference/ApiOverview/CachingFramework/Configuration/Index.html#cache-configurations
-$TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay']['frontend'] = \TYPO3\CMS\Core\Cache\Frontend\StringFrontend::class;
-$TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay']['groups'] = ['all', 'rssdisplay'];
+if (empty($GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['rssdisplay'])) {
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['rssdisplay'] = [];
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['rssdisplay']['groups'] = ['all', 'rssdisplay'];
+}
 
 if (!\TYPO3\CMS\Core\Core\Environment::isComposerMode()) {
     # Install PSR-0-compatible class autoloader for SimplePie Library in Resources/PHP/SimplePie

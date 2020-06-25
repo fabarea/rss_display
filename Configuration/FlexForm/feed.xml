@@ -36,8 +36,10 @@
 						<TCEforms>
 							<label>LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:tt_content.tx_rssdisplay_template</label>
 							<config>
-								<type>user</type>
-								<userFunc>Fab\RssDisplay\Backend\TceForms->renderTemplateMenu</userFunc>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<itemsProcFunc>Fab\RssDisplay\Backend\TceForms->getTemplateEntries</itemsProcFunc>
+								<items></items>
 							</config>
 						</TCEforms>
 					</settings.template>
