@@ -34,8 +34,8 @@ if (false === isset($configuration['autoload_typoscript']) || true === (bool)$co
 
 // cache configuration, see
 // https://docs.typo3.org/typo3cms/CoreApiReference/ApiOverview/CachingFramework/Configuration/Index.html#cache-configurations
-$TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay']['frontend'] = \TYPO3\CMS\Core\Cache\Frontend\StringFrontend::class;
-$TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['rssdisplay']['groups'] = ['all', 'rssdisplay'];
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['rssdisplay']['frontend'] = \TYPO3\CMS\Core\Cache\Frontend\VariableFrontend::class;
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['rssdisplay']['groups'] = ['all', 'rssdisplay'];
 
 if (!\TYPO3\CMS\Core\Core\Environment::isComposerMode()) {
     # Install PSR-0-compatible class autoloader for SimplePie Library in Resources/PHP/SimplePie
