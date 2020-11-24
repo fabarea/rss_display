@@ -37,7 +37,7 @@
 							<label>LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:tt_content.tx_rssdisplay_template</label>
 							<config>
 								<type>user</type>
-								<userFunc>Fab\RssDisplay\Backend\TceForms->renderTemplateMenu</userFunc>
+								<renderType>rssDisplayFeedTemplate</renderType>
 							</config>
 						</TCEforms>
 					</settings.template>

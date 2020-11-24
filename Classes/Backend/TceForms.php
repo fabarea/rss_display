@@ -11,11 +11,12 @@ namespace Fab\RssDisplay\Backend;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\BackendConfigurationManager;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Backend\Form\Element\AbstractFormElement;
 
 /**
  * Backend integration with TCEForms
  */
-class TceForms
+class TceForms extends AbstractFormElement
 {
 
     /**
@@ -26,9 +27,8 @@ class TceForms
      * @return string
      * @throws \InvalidArgumentException
      */
-    public function renderTemplateMenu(&$params, &$tsObj)
+    public function renderTemplateMenu($row)
     {
-
         $configurationManager = $this->getObjectManager()->get(BackendConfigurationManager::class);
 
         $setup = $configurationManager->getTypoScriptSetup();
@@ -63,6 +63,17 @@ class TceForms
     }
 
     /**
+     * Render a template.
+     *
+     * @return array
+     */
+    public function render() {
+        $result = $this->initializeResultArray();
+        $result["html"] = $this->renderTemplateMenu($this->data["databaseRow"]);
+        return $result;
+    }
+
+    /**
      * Returns the TypoScript configuration found an extension name
      *
      * @param array $setup
@@ -74,8 +85,8 @@ class TceForms
     {
         $pluginConfiguration = array();
         if (is_array($setup['plugin.']['tx_' . strtolower($extensionName) . '.'])) {
-            /** @var \TYPO3\CMS\Extbase\Service\TypoScriptService $typoScriptService */
-            $typoScriptService = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Service\TypoScriptService');
+            /** @var \TYPO3\CMS\Core\TypoScript\TypoScriptService $typoScriptService */
+            $typoScriptService = GeneralUtility::makeInstance('TYPO3\CMS\Core\TypoScript\TypoScriptService');
             $pluginConfiguration = $typoScriptService->convertTypoScriptArrayToPlainArray($setup['plugin.']['tx_' . strtolower($extensionName) . '.']);
         }
         return $pluginConfiguration;
