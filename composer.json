@@ -22,6 +22,9 @@
             "SimplePie": "Resources/Private/PHP/SimplePie/"
         }
     },
+    "require": {
+        "typo3/cms-core": "^10.4.0"
+    },
     "replace": {
         "fab/rss_display": "self.version",
         "typo3-ter/rss-display": "self.version"
