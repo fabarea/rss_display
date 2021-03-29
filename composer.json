@@ -25,5 +25,10 @@
     "replace": {
         "fab/rss_display": "self.version",
         "typo3-ter/rss-display": "self.version"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "rss_display"
+        }
     }
 }
