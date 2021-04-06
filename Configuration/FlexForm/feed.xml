@@ -36,8 +36,10 @@
 						<TCEforms>
 							<label>LLL:EXT:rss_display/Resources/Private/Language/locallang.xlf:tt_content.tx_rssdisplay_template</label>
 							<config>
-								<type>user</type>
-								<renderType>rssDisplayFeedTemplate</renderType>
+								<type>select</type>
+								<itemsProcFunc>Fab\RssDisplay\Backend\FlexformHelper->populateTemplatesList</itemsProcFunc>
+								<renderType>selectSingle</renderType>
+								<items></items>
 							</config>
 						</TCEforms>
 					</settings.template>

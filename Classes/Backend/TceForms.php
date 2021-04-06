@@ -15,6 +15,8 @@ use TYPO3\CMS\Backend\Form\Element\AbstractFormElement;
 
 /**
  * Backend integration with TCEForms
+ *
+ * @deprecated No longer used, will be removed
  */
 class TceForms extends AbstractFormElement
 {
@@ -26,6 +28,7 @@ class TceForms extends AbstractFormElement
      * @param object $tsObj
      * @return string
      * @throws \InvalidArgumentException
+     *
      */
     public function renderTemplateMenu($row)
     {
