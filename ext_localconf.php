@@ -53,11 +53,3 @@ if (!\TYPO3\CMS\Core\Core\Environment::isComposerMode()) {
     });
 }
 
-/*
-// Register a node for TYPO3 10
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1606225806] = [
-    'nodeName' => 'rssDisplayFeedTemplate',
-    'priority' => 40,
-    'class' => \Fab\RssDisplay\Backend\TceForms::class,
-];
-*/

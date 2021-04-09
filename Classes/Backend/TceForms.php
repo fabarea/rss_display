@@ -28,7 +28,6 @@ class TceForms extends AbstractFormElement
      * @param object $tsObj
      * @return string
      * @throws \InvalidArgumentException
-     *
      */
     public function renderTemplateMenu($row)
     {
