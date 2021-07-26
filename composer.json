@@ -14,12 +14,13 @@
     "support": {
         "issues": "https://github.com/fabarea/rss_display/issues"
     },
+    "require": {
+        "typo3/cms-core": "^10.4",
+        "simplepie/simplepie": "^1.5"
+    },
     "autoload": {
         "psr-4": {
             "Fab\\RssDisplay\\": "Classes/"
-        },
-        "psr-0": {
-            "SimplePie": "Resources/Private/PHP/SimplePie/"
         }
     },
     "replace": {
