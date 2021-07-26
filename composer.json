@@ -31,5 +31,28 @@
         "typo3/cms": {
             "extension-key": "rss_display"
         }
+    },
+    "scripts": {
+        "extension-create-libs": [
+            "mkdir -p Libraries/temp",
+            "[ -f $(composer config --global home)/vendor/bin/phar-composer ] || composer global require clue/phar-composer",
+            "if [ ! -f Libraries/simplepie-simplepie.phar ]; then cd Libraries/temp && composer require simplepie/simplepie=^1.5 && composer config classmap-authoritative true && composer config prepend-autoloader false && composer dump-autoload; fi",
+            "[ -f Libraries/simplepie-simplepie.phar ] || $(composer config --global home)/vendor/bin/phar-composer build Libraries/temp/ Libraries/simplepie-simplepie.phar",
+            "chmod -x Libraries/*.phar",
+            "rm -rf Libraries/temp"
+        ],
+        "extension-build": [
+            "@extension-create-libs"
+        ],
+        "extension-release": [
+            "@extension-build",
+            "rm -rf Tests/",
+            "rm -f .editorconfig",
+            "rm -f .gitattributes",
+            "rm -f .gitignore"
+        ],
+        "extension-clean": [
+           "rm -rf Libraries"
+        ]
     }
 }
