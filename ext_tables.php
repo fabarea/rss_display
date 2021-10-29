@@ -13,12 +13,14 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['rssdisplay_p
 );
 
 // Possible Static TS loading
-$configuration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['rss_display']);
+$configuration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('rss_display');
+
+
 if (true === isset($configuration['autoload_typoscript']['value']) && true === (bool)$configuration['autoload_typoscript']['value']) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('rss_display', 'Configuration/TypoScript', 'RSS Display: display a RSS / Atom feed');
 }
 
-$GLOBALS['TBE_MODULES_EXT']["xMOD_db_new_content_el"]['addElClasses'][\Fab\RssDisplay\Backend\Wizard::class] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('rss_display') . 'Classes/Backend/Wizard.php';
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms']['db_new_content_el']['wizardItemsHook'][\Fab\RssDisplay\Backend\Wizard::class] = \Fab\RssDisplay\Backend\Wizard::class;
 
 call_user_func(function () {
     /**

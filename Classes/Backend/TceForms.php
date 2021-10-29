@@ -31,7 +31,7 @@ class TceForms extends AbstractFormElement
      */
     public function renderTemplateMenu($row)
     {
-        $configurationManager = $this->getObjectManager()->get(BackendConfigurationManager::class);
+        $configurationManager = GeneralUtility::makeInstance(BackendConfigurationManager::class);
 
         $setup = $configurationManager->getTypoScriptSetup();
         $configuration = $this->getPluginConfiguration($setup, 'rssdisplay');
@@ -93,14 +93,4 @@ class TceForms extends AbstractFormElement
         }
         return $pluginConfiguration;
     }
-
-    /**
-     * @return ObjectManager
-     * @throws \InvalidArgumentException
-     */
-    protected function getObjectManager()
-    {
-        return GeneralUtility::makeInstance(ObjectManager::class);
-    }
-
 }

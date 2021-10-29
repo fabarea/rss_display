@@ -27,8 +27,8 @@ class FlexformHelper
         // workaround to set current page id for ConfigurationManager
         $_GET['id'] = $config['flexParentDatabaseRow']['pid'];
 
-        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-        $configurationManager = $objectManager->get(ConfigurationManager::class);
+        /** @var ConfigurationManager $configurationManager */
+        $configurationManager = GeneralUtility::makeInstance(ConfigurationManager::class);
 
         $setting = $configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
         $templates = $setting['plugin.']['tx_rssdisplay.']['settings.']['templates.'] ?? [];
