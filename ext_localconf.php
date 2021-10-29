@@ -1,9 +1,10 @@
 <?php
 if (!defined('TYPO3_MODE')) die ('Access denied.');
+$typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
 
 // Define whether USER or USER_INT.
 $pluginType = 'USER_INT';
-$configuration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['rss_display']);
+$configuration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('rss_display');
 if (!empty($configuration['plugin_type'])) {
     $pluginType = $configuration['plugin_type'];
 }
@@ -25,12 +26,23 @@ if (false === isset($configuration['autoload_typoscript']) || true === (bool)$co
 }
 
 // Configure Extbase plugin
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Fab.rss_display',
-    'Pi1',
-    ['Feed' => 'show'],
-    $pluginType === 'USER_INT' ? ['Feed' => 'show'] : []
-);
+if ($typo3Version->getMajorVersion() >= 11) {
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'rss_display',
+        'Pi1',
+        [\Fab\RssDisplay\Controller\FeedController::class => 'show'],
+        $pluginType === 'USER_INT' ? [\Fab\RssDisplay\Controller\FeedController::class => 'show'] : [],
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_PLUGIN
+    );
+
+} else  {
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Fab.rss_display',
+        'Pi1',
+        ['Feed' => 'show'],
+        $pluginType === 'USER_INT' ? ['Feed' => 'show'] : []
+    );
+}
 
 // cache configuration, see
 // https://docs.typo3.org/typo3cms/CoreApiReference/ApiOverview/CachingFramework/Configuration/Index.html#cache-configurations
