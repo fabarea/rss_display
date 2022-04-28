@@ -15,7 +15,7 @@
         "issues": "https://github.com/fabarea/rss_display/issues"
     },
     "require": {
-        "typo3/cms-core": "^10.4",
+        "typo3/cms-core": "^10.4 || ^11.5",
         "simplepie/simplepie": "^1.5"
     },
     "autoload": {
