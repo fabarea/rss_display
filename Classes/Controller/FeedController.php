@@ -66,7 +66,7 @@ class FeedController extends ActionController
             $feed = $this->getSimplePie($this->settings['feedUrl']);
 
             $this->view->assign('title', $feed->get_title());
-            $this->view->assign('items', $feed->get_items(0, $this->settings['numberOfItems']));
+            $this->view->assign('items', $feed->get_items(0, (int)$this->settings['numberOfItems']));
             $this->view->assign('settings', $this->settings);
             $cObj = $this->configurationManager->getContentObject();
             $this->view->assign('data', $cObj->data);
