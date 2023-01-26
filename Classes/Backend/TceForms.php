@@ -24,8 +24,7 @@ class TceForms extends AbstractFormElement
     /**
      * Render a template menu.
      *
-     * @param array $params
-     * @param object $tsObj
+     * @param array $row
      * @return string
      * @throws \InvalidArgumentException
      */
@@ -40,8 +39,8 @@ class TceForms extends AbstractFormElement
         if (is_array($configuration['settings']['templates'])) {
 
             $selectedItem = '';
-            if (!empty($params['row']['pi_flexform'])) {
-                $values = $params['row']['pi_flexform'];
+            if (!empty($row['pi_flexform'])) {
+                $values = $row['pi_flexform'];
                 if (!empty($values['data']['sDEF']['lDEF']['settings.template'])) {
                     $selectedItem = $values['data']['sDEF']['lDEF']['settings.template']['vDEF'];
                 }
@@ -57,7 +56,7 @@ class TceForms extends AbstractFormElement
             }
 
             $output = sprintf('<select name="data[tt_content][%s][pi_flexform][data][sDEF][lDEF][settings.template][vDEF]">%s</select>',
-                $params['row']['uid'],
+                $row['uid'],
                 implode("\n", $options)
             );
         }
