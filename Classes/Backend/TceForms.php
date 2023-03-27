@@ -32,7 +32,18 @@ class TceForms extends AbstractFormElement
     {
         $configurationManager = GeneralUtility::makeInstance(BackendConfigurationManager::class);
 
+        // fake GET[id] to get the ts configuration from the right page
+        $saveGet = null;
+        if (isset($_GET['id'])) {
+            $saveGet = $_GET['id'];
+        }
+        $_GET['id'] = $params['row']['pid'];
         $setup = $configurationManager->getTypoScriptSetup();
+        if ($saveGet !== null) {
+            $_GET['id'] = $saveGet;
+        } else {
+            unset($_GET['id']);
+        }
         $configuration = $this->getPluginConfiguration($setup, 'rssdisplay');
 
         $output = '';
