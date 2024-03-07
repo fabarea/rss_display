@@ -1,0 +1,17 @@
+mod.wizards {
+    newContentElement.wizardItems {
+        plugins {
+            elements {
+                rss_display_pi1 {
+                    iconIdentifier = content-widget-rss
+                    title = RSS Feed Display
+                    description = Create a list of rss items
+                    tt_content_defValues {
+                        CType = list
+                        list_type = rss_display_pi1
+                    }
+                }
+            }
+        }
+    }
+}
