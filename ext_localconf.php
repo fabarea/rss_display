@@ -1,6 +1,13 @@
 <?php
-if (!defined('TYPO3_MODE')) die ('Access denied.');
+declare(strict_types=1);
+
+if (!defined('TYPO3')) die ('Access denied.');
+
+
+use Fab\RssDisplay\Controller\FeedController;
 $typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
+
+
 
 // Define whether USER or USER_INT.
 $pluginType = 'USER_INT';
@@ -30,8 +37,8 @@ if ($typo3Version->getMajorVersion() >= 11) {
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
         'rss_display',
         'Pi1',
-        [\Fab\RssDisplay\Controller\FeedController::class => 'show'],
-        $pluginType === 'USER_INT' ? [\Fab\RssDisplay\Controller\FeedController::class => 'show'] : [],
+        [FeedController::class => 'show'],
+        $pluginType === 'USER_INT' ? [FeedController::class => 'show'] : [],
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_PLUGIN
     );
 
