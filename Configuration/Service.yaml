@@ -7,3 +7,6 @@ services:
 
   Fab\RssDisplay\:
     resource: '../Classes/*'
+
+  Fab\RssDisplay\Controller\FeedController:
+    public: true
