@@ -16,6 +16,7 @@ use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * RSS display that will fetch the content of a RSS Feed and display it onto the Frontend.
@@ -68,7 +69,7 @@ class FeedController extends ActionController
             $this->view->assign('title', $feed->get_title());
             $this->view->assign('items', $feed->get_items(0, (int)$this->settings['numberOfItems']));
             $this->view->assign('settings', $this->settings);
-            $cObj = $this->configurationManager->getContentObject();
+            $cObj = $this->request->getAttribute('currentContentObject');
             $this->view->assign('data', $cObj->data);
             $result = $this->view->render();
 
@@ -79,7 +80,7 @@ class FeedController extends ActionController
             }
         }
 
-        return $result;
+        return $this->htmlResponse($result);
     }
 
     /**
@@ -106,7 +107,7 @@ class FeedController extends ActionController
         $result = FALSE;
         if ($this->getPluginType() === self::PLUGIN_TYPE_USER_INT
             && $this->getCacheInstance()->has($this->getCacheIdentifier())
-            && !GeneralUtility::_GET('no_cache')
+            && !($this->request->getQueryParams()['no_cache'] ?? null)
         ) {
             $result = TRUE;
         }

@@ -39,7 +39,6 @@
 								<type>select</type>
 								<itemsProcFunc>Fab\RssDisplay\Backend\FlexformHelper->populateTemplatesList</itemsProcFunc>
 								<renderType>selectSingle</renderType>
-								<items></items>
 							</config>
 						</TCEforms>
 					</settings.template>

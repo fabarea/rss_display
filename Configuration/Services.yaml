@@ -1,0 +1,12 @@
+services:
+  # general settings
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Fab\RssDisplay\:
+    resource: '../Classes/*'
+
+  Fab\RssDisplay\Controller\FeedController:
+    public: true
